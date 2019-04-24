@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const connectionString = 'mongodb://localhost/meetup';
+const connectionString = "mongodb://localhost/meetup";
 
 mongoose.connect(connectionString, {
   useNewUrlParser: true,
@@ -8,14 +8,14 @@ mongoose.connect(connectionString, {
   useFindAndModify: false
 });
 
-mongoose.connection.on('connected', () => {
-  console.log('mongoose connected to ', connectionString);
+mongoose.connection.on("connected", () => {
+  console.log("mongoose connected to ", connectionString);
 });
 
-mongoose.connection.on('disconnected', () => {
-  console.log('mongoose disconnected to ', connectionString);
+mongoose.connection.on("disconnected", () => {
+  console.log("mongoose disconnected to ", connectionString);
 });
 
-mongoose.connection.on('error', (error) => {
-  console.log('mongoose error ', error);
+mongoose.connection.on("error", error => {
+  console.log("mongoose error ", error);
 });
