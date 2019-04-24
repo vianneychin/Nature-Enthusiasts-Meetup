@@ -13,7 +13,7 @@ app.use(logger("dev"));
 
 app.use("/user", userRouter);
 // adding static style
-app.use(express.static("css"))
+app.use(express.static('public'))
 
 // Rendering the home.ejs landing page
 app.get("/", (req, res) => {
