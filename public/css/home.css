@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    font-family: 'Didact Gothic', sans-serif;
+}
+body {
+    background-image: url("../img/park.jpeg");
+    background-size: cover;
+    background-position: top;
+    height: 100vh;
+    position: relative;
+}
+h1 {
+    font-size: 50px;
+    position: relative;
+    top: 25%;
+    left: 30%;
+    letter-spacing: 20px;
+}
+.login {
+    font-size: 52px;
+    position: relative;
+    top: 49%;
+    left: 48%;
+}
+.sign-up {
+    font-size: 52px;
+    position: relative;
+    top: 60%;
+    left: 45%;
+}
+#parent-container {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    top: 49%;
+    left: 48%;
+    position: absolute;
+}
+/* .line {
+    width: 90px;
+    height: 5px;
+    margin: 10px;
+    background: white;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100px;
+} */
