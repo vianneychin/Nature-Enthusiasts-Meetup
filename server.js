@@ -12,6 +12,8 @@ app.use(methodOverride("_method"));
 app.use(logger("dev"));
 
 app.use("/user", userRouter);
+// adding static style
+app.use(express.static("css"))
 
 // Rendering the home.ejs landing page
 app.get("/", (req, res) => {
