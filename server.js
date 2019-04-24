@@ -11,9 +11,14 @@ require("./db/db");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(logger("dev"));
-
+// adding static style
+app.use(express.static('public'))
 app.use("/user", userRouter);
+
+  
+  
 app.use("/events", eventRouter);
+
 
 // Rendering the home.ejs landing page
 app.get("/", (req, res) => {
