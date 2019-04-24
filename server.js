@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const logger = require("morgan");
 const userRouter = require("./routes/users");
+const eventRouter = require("./routes/events");
 require("./db/db");
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -12,6 +13,7 @@ app.use(methodOverride("_method"));
 app.use(logger("dev"));
 
 app.use("/user", userRouter);
+app.use("/events", eventRouter);
 
 // Rendering the home.ejs landing page
 app.get("/", (req, res) => {
