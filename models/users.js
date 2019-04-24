@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
   events: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Events"
+      ref: "Event"
     }
   ]
 });
