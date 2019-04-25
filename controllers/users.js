@@ -12,9 +12,6 @@ module.exports = {
       res.render(err);
     }
   },
-  login: (req, res) => {
-    res.render("users/login.ejs");
-  },
   create: async (req, res) => {
     try {
       const createdUser = await User.create(req.body);
