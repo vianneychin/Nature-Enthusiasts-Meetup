@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: red;
+}
+input {
+    font-size: 100%;
+    padding: 15px;
+    margin: 10px;
+    width: 250px;
+    border-radius: 10px;
+}
+.username-container {
+    display: flex;
+    justify-content: center;
+}
+.password-container {
+    display: flex;
+    justify-content: center;
+}
+h1 {
+}
+.login-container {
+    width: 100%;
+}
