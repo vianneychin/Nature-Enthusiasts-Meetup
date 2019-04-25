@@ -10,8 +10,12 @@
     <h1>This is the events index page</h1>
     
     <h1>List of Events</h1>
-    <%for (let i = 0; i < event.length; i++) {%>
-        <div><%=event[i].title%></div>
-    <%}%>
+    <ul> 
+    <% for (let i = 0; i < event.length; i++) {%>
+        <li><a href=""><%= event[i].title%></a></li>
+        <%}%>
+    
+    </ul>
+
     </body>
 </html>
