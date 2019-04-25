@@ -3,26 +3,40 @@
     margin: 0;
     padding: 0;
 }
-body {
-    background-color: red;
+.background {
+    height: 100vh;
+    background-image: url(../img/park.jpeg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
 }
 input {
     font-size: 100%;
     padding: 15px;
     margin: 10px;
-    width: 250px;
+    width: 76%;
     border-radius: 10px;
 }
-.username-container {
-    display: flex;
-    justify-content: center;
-}
-.password-container {
-    display: flex;
-    justify-content: center;
-}
 h1 {
+    margin-left: 25px;
+    margin-bottom: 25px;
+    font-size: 250%;
+    color: white;
+}
+button {
+    text-align: center;
+    padding: 10%;
+    padding-top: 1%;
+    padding-bottom: 4%;
+    margin-left: 13px;
+    margin-top: 2%;
+    border-radius: 8px;
+    width: 32%;
 }
 .login-container {
-    width: 100%;
+    position: absolute;
+    top: 39%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 42%;
 }
