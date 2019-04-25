@@ -4,8 +4,13 @@ const eventSchema = new mongoose.Schema({
   title: String,
   location: String,
   date: Date,
-  participants: [],
-  owner: [],
+  participants: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    }
+  ],
+  owner: String,
   description: String,
   findUs: String
 });
