@@ -49,9 +49,10 @@ module.exports = {
   show: async (req, res) => {
     try {
       const foundUser = await User.findById(req.params.id);
-      console.log(foundUser);
+      console.log(foundUser._id, req.session.usersDbId);
       res.render("users/show.ejs", {
-        user: foundUser
+        user: foundUser,
+        sessionId: req.session.usersDbId
       });
     } catch (err) {
       res.send(err);
@@ -66,5 +67,4 @@ module.exports = {
       res.send(err);
     }
   }
-}
-
+};

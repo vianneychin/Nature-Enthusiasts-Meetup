@@ -15,14 +15,10 @@
         <li>Email: <%=user.email%></li>
     </ul>
     </section>
-    <section>
+    <%if (user._id.toString() === sessionId) {%>
+        <section>
     <a href="/user/<%=user._id%>/edit">Edit Account</a>
     </section>
-    <br/>
-    <section>
-        <form action="/user/<%=user._id%>?_method=DELETE" method="POST">
-            <button type="submit">Delete Account</button>
-        </form>
-    </section>
+   <% } %>    
     </body>
 </html>

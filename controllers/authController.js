@@ -26,6 +26,7 @@ module.exports = {
           req.session.usersDbId = foundUser._id;
           console.log(foundUser, "<---- this is the foundUser ");
           console.log(req.session, "<---- console log of req.session");
+          console.log(req.session.usersDbId, "<---- usersDbId");
           res.redirect("/events");
         } else {
           console.log("invalid email or password");
@@ -38,5 +39,14 @@ module.exports = {
     } catch (err) {
       res.send(err);
     }
+  },
+  destroy: (req, res) => {
+    req.session.destroy(err => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.redirect("/auth/login");
+      }
+    });
   }
 };

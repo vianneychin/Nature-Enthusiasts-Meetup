@@ -8,10 +8,19 @@
     </head>
     <body>
     <h1>This is the user edit age</h1>
+    <section>
     <form action="/user/<%=user._id%>?_method=PUT" method="POST">
         <input type="text" name="name" value="<%=user.name%>"/><br/>
         <input type="text" name="email" value="<%=user.email%>"/><br/>
         <input type="text" name="password" value="<%=user.password%>"/><br/>
         <button type="submit">Edit Account!</button>
+    </form>
+    </section>
+    <br/>
+    <section>
+        <form action="/user/<%=user._id%>?_method=DELETE" method="POST">
+            <button type="submit">Delete Account</button>
+        </form>
+    </section>    
     </body>
 </html>
