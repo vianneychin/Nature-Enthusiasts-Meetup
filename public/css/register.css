@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background: grey;
+}
+#register-container {
+    position: absolute;
+    top: 39%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    float: left;
+}
+#text-box {
+    display: block;
+    width: 34%;
+    position: absolute;
+    top: 56%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+}
+input {
+    padding: 7%;
+    width: 190%;
+    margin: 6%;
+}
+button {
+    padding: 6%;
+    margin-left: 6%;
+    margin-top: 3%;
+}
+h1 {
+    letter-spacing: 2px;
+    margin-left: 7%;
+}
+@media only screen 
+  and (min-device-width: 375px) { 
+    #register-container {
+        left: 30%;
+    }
+    #text-box {
+        display: block;
+        width: 88%;
+        position: absolute;
+        top: 61%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+    }
+}

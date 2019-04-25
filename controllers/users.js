@@ -39,6 +39,7 @@ module.exports = {
   update: async (req, res) => {
     try {
       const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body);
+      console.log(req.body);
       console.log(updatedUser);
       res.redirect("/events");
     } catch (err) {
@@ -65,4 +66,5 @@ module.exports = {
       res.send(err);
     }
   }
-};
+}
+
