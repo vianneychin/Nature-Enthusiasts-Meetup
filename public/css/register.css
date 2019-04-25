@@ -15,11 +15,12 @@ body {
 }
 #text-box {
     display: block;
-    width: 34%;
+    width: 39%;
     position: absolute;
-    top: 56%;
-    left: 49%;
+    top: 13%;
+    left: 43%;
     transform: translate(-50%, -50%);
+    font-size: 21px;
 }
 input {
     padding: 7%;
@@ -42,10 +43,11 @@ h1 {
     }
     #text-box {
         display: block;
-        width: 88%;
+        width: 39%;
         position: absolute;
-        top: 61%;
-        left: 49%;
+        top: 13%;
+        left: 40%;
         transform: translate(-50%, -50%);
+        font-size: 28px;
     }
 }
