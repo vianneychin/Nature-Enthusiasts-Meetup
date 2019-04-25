@@ -12,15 +12,12 @@ module.exports = {
       res.render(err);
     }
   },
-  login: (req, res) => {
-    res.render("users/login.ejs");
-  },
   create: async (req, res) => {
     try {
       const createdUser = await User.create(req.body);
       console.log(createdUser);
       // res.send("createdUser");
-      res.redirect("/users/show.ejs");
+      res.redirect("/user");
     } catch (err) {
       res.send(err);
     }
@@ -56,6 +53,15 @@ module.exports = {
       res.render("users/show.ejs", {
         user: foundUser
       });
+    } catch (err) {
+      res.send(err);
+    }
+  },
+  destroy: async (req, res) => {
+    try {
+      const deletedUser = await User.findByIdAndDelete(req.params.id);
+      console.log(deletedUser);
+      res.redirect("/");
     } catch (err) {
       res.send(err);
     }
