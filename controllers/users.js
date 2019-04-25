@@ -8,11 +8,13 @@ module.exports = {
     try {
       const createdUser = await User.create(req.body);
       console.log(createdUser);
-      res.send("createdUser");
+      // res.send("createdUser");
+      res.redirect("/events");
     } catch (err) {
       res.send(err);
     }
-
-    // res.render("users/signup.ejs");
+  },
+  register: (req, res) => {
+    res.render("users/register.ejs");
   }
 };
