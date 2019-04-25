@@ -2,52 +2,37 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-align: center;
-    color: white;
     font-family: 'Didact Gothic', sans-serif;
 }
 body {
-    background-image: url("../img/park.jpeg");
-    background-size: cover;
-    background-position: top;
+
+}
+.background {
     height: 100vh;
-    position: relative;
+    background-image: url(../img/park.jpeg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+}
+.parent-header {
+    width: 500px;
+    height: 20%;
+    background: rgba(0, 0, 0, 0.35);
+    top: 27%;
+    left: 36%;
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    line-height: 5rem;
+    letter-spacing: 15px;
+    border-radius: 10px;
+    color: rgba(245, 245, 245, .8);
 }
 h1 {
-    font-size: 50px;
-    position: relative;
-    top: 25%;
-    left: 30%;
-    letter-spacing: 20px;
+    font-size: 300%;
+    line-height: 8rem;
 }
-.login {
-    font-size: 52px;
-    position: relative;
-    top: 49%;
-    left: 48%;
+h2 {
+    font-size: 35px;
+    letter-spacing: 12px;
 }
-.sign-up {
-    font-size: 52px;
-    position: relative;
-    top: 60%;
-    left: 45%;
-}
-#parent-container {
-    width: 100px;
-    height: 100px;
-    background-color: black;
-    top: 49%;
-    left: 48%;
-    position: absolute;
-}
-/* .line {
-    width: 90px;
-    height: 5px;
-    margin: 10px;
-    background: white;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 100px;
-} */
