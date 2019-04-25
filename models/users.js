@@ -4,13 +4,7 @@ const bcrypt = require("bcryptjs");
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   password: { type: String, required: true },
-  email: { type: String, required: true },
-  events: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Event"
-    }
-  ]
+  email: { type: String, required: true }
 });
 
 userSchema.methods.hashPassword = function(password) {
