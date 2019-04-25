@@ -20,7 +20,7 @@ module.exports = {
       const createdUser = await User.create(req.body);
       console.log(createdUser);
       // res.send("createdUser");
-      res.redirect("/users/show.ejs");
+      res.redirect("/user");
     } catch (err) {
       res.send(err);
     }
