@@ -58,5 +58,14 @@ module.exports = {
     } catch (err) {
       res.send(err);
     }
+  },
+  destroy: async (req, res) => {
+    try {
+      const deletedUser = await User.findByIdAndDelete(req.params.id);
+      console.log(deletedUser);
+      res.redirect("/");
+    } catch (err) {
+      res.send(err);
+    }
   }
 };

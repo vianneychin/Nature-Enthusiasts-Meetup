@@ -9,5 +9,6 @@ router.get("/", userController.index);
 router.put("/:id", userController.update);
 router.get("/:id", userController.show);
 router.get("/:id/edit", userController.edit);
+router.delete("/:id", userController.destroy);
 
 module.exports = router;
