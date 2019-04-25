@@ -1,8 +1,16 @@
 const User = require("../models/users");
 
 module.exports = {
-  index: (req, res) => {
-    res.render("users/index.ejs");
+  index: async (req, res) => {
+    try {
+      const foundUser = await User.find({});
+      res.render("users/index.ejs", {
+        user: foundUser
+      });
+    } catch (err) {
+      console.log(err);
+      res.render(err);
+    }
   },
   login: (req, res) => {
     res.render("users/login.ejs");

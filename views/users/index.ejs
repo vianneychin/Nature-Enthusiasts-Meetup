@@ -8,5 +8,13 @@
     </head>
     <body>
     <h1>This is the index page to list all users</h1>
+    <h2>All users</h2>
+    <ul>
+    <% for (let i = 0; i < user.length; i++) {%>
+    <li>
+        <a href="/user/<%=user[i]._id%>"><%=user[i].name%></a>
+    </li>
+    <%}%>
+    </ul>
     </body>
 </html>
