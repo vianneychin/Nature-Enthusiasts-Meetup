@@ -1,10 +1,13 @@
 const User = require("../models/users");
 
 module.exports = {
+  index: (req, res) => {
+    res.render("users/index.ejs");
+  },
   login: (req, res) => {
     res.render("users/login.ejs");
   },
-  signup: async (req, res) => {
+  create: async (req, res) => {
     try {
       const createdUser = await User.create(req.body);
       console.log(createdUser);
