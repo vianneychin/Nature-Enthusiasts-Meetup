@@ -27,6 +27,7 @@
 }
 h1 {
     font-size: 300%;
+    color: white;
 }
 button {
     width: 50%;
@@ -52,4 +53,7 @@ button:hover {
     background-color: white;
     cursor: pointer;
     color: grey;
+}
+button:focus {
+    outline:0;
 }

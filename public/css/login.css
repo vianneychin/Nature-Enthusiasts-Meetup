@@ -9,7 +9,7 @@
     background-image: url(../img/park.jpeg);
     background-size: cover;
     background-position: center;
-    filter: blur(3px);
+    filter: blur(4px);
 }
 input {
     font-size: 100%;
@@ -17,6 +17,8 @@ input {
     margin: 10px;
     width: 76%;
     border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.11);
+    color: white;
 }
 h1 {
     letter-spacing: 10px;
@@ -26,14 +28,18 @@ h1 {
     color: white;
 }
 button {
-    text-align: center;
-    padding: 10%;
+    padding: 20%;
     padding-top: 1%;
-    padding-bottom: 4%;
+    padding-bottom: 1%;
     margin-left: 13px;
     margin-top: 2%;
     border-radius: 8px;
     width: 32%;
+    font-family: inherit;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.11);
+    color: white;
+    text-align: left;
 }
 .login-container {
     position: absolute;
@@ -42,3 +48,16 @@ button {
     transform: translate(-50%, -50%);
     width: 42%;
 }
+button, input:focus {
+    outline: 0;
+    padding-left: 51px;
+}
+button:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.39);
+    color: white;
+}
+::placeholder { 
+    color: white;
+    opacity: 1;
+  }
