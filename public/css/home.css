@@ -15,7 +15,7 @@
     width: 44%;
     height: 34%;
     top: 35%;
-    left: 29%;
+    left: 32%;
     position: absolute;
     justify-content: center;
     text-align: center;
@@ -34,9 +34,9 @@ h1 {
 hr {
     position: absolute;
     top: 45%;
-    left: 31%;
+    left: 18%;
     border: 2px solid rgb(255, 255, 255);
-    border-radius: 81%;
+    border-radius: 41%;
     width: 40%;
 }
 p {
@@ -44,7 +44,7 @@ p {
     height: 21%;
     position: absolute;
     top: 59%;
-    left: -38%;
+    left: -53%;
     font-size: 127%;
     letter-spacing: 4px;
 }
@@ -63,11 +63,11 @@ button {
 }
 .login-button {
     top: 115%;
-    left: 25%;
+    left: 14%;
 }
 .sign-up-button {
     top: 94%;
-    left: 25%;
+    left: 14%;
 }
 button:hover {
     cursor: pointer;
