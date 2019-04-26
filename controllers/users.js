@@ -12,16 +12,6 @@ module.exports = {
       res.render(err);
     }
   },
-  create: async (req, res) => {
-    try {
-      const createdUser = await User.create(req.body);
-      console.log(createdUser);
-      // res.send("createdUser");
-      res.redirect("/user");
-    } catch (err) {
-      res.send(err);
-    }
-  },
   edit: async (req, res) => {
     try {
       const editUser = await User.findById(req.params.id);
