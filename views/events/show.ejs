@@ -15,21 +15,32 @@
         <li>Title: <%=event.title%></li>
         <li>Location: <%=event.location%></li>
         <li>Date: <%=event.date%></li>
-        <li>participants: <%=event.participants%></li>
         <li>description: <%=event.description%></li>
         <li>Where to find us: <%=event.findUs%></li>
     </ul>
     </section>
-    <section>
+    <div>
     <h3>Event Participants</h3>
     <ul>
-    </ul>    
-
+    <% for (let i = 0; i < event.participants.length; i++) {%>
+    <li><%=event.participants[i].name%></li>
+    <%}%>
+    </ul>  
+    </div>  
 
     <%if (event.owner._id.toString() === sessionId) {%>
         <section>
     <a href="/events/<%=event._id%>/edit">Edit Event</a>
     </section>
    <% } %>  
+
+   <h3>Are you going?</h3>
+   <%if (user._id.toString() === sessionId) {%>
+        <div>
+    <form action="/events/<%=event._id%>" method="POST">
+    <button type="submit">Yes</button>
+    </form>
+    </div>
+   <% } %>   
     </body>
 </html>

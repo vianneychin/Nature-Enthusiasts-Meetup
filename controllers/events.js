@@ -31,14 +31,37 @@ module.exports = {
       res.render(err);
     }
   },
+  joinEvent: async (req, res) => {
+    console.log("button is clicked");
+    try {
+      const currentUser = await User.findById(req.session.usersDbId);
+      console.log(currentUser, "<---- currentUser");
+      const foundEvent = await Event.findById(req.params.id);
+      console.log(foundEvent, "<---- foundEvent");
+      foundEvent.participants.push(currentUser);
+      foundEvent.save();
+      console.log(foundEvent, "<---- foundEvent after user is put in");
+    } catch (err) {
+      res.send(err);
+    }
+
+    // When the user that is signed in clicks the yes button on the event show page
+    // Add the user to that event's participants array
+    // const currentUser = await User.findById(req.session.usersDbId)
+  },
   show: async (req, res) => {
     try {
+      const currentUser = await User.findById(req.session.usersDbId);
       const foundEvent = await Event.findById(req.params.id)
         // populating the the owner object ID so that the owner name displays on show page
         .populate("owner")
+        .populate("participants")
         .exec();
+
       console.log(foundEvent);
+      console.log(currentUser);
       res.render("events/show.ejs", {
+        user: currentUser,
         event: foundEvent,
         sessionId: req.session.usersDbId
       });
