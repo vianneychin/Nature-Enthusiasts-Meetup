@@ -4,19 +4,24 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
         <link rel="stylesheet" href="/css/register.css">
     </head>
     <body>
+        <div class="background"></div>
         <div id="register-container">
-           <h1>register</h1>
+           <h1>getting started</h1>
+           <hr>
             <form action="/auth/register" method="POST">
-            <input type="text" name="name" placeholder="name"/><br/>
-            <input type="text" name="email" placeholder="email"/><br/>
-            <input type="text" name="password" placeholder="password"/><br/>
-            <button type="submit">Create Account!</button>
+            <input type="text" name="name" placeholder="name" id="name-input"/>
+            <input type="text" name="email" placeholder="email" id="email-input"/>
+            <input type="text" name="password" placeholder="password" id="password-input"/>
+            <button type="submit">sign up</button>
         </form>
+        <div id="text-box">
+        <hr>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </div>
-        <div id="text-box">Odio cum aliquet himenaeos accumsan ornare netus duis sit dignissim sollicitudin convallis habitant.
-</div>
     </body>
 </html>

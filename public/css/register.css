@@ -2,52 +2,99 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 body {
-    background: grey;
+    color: white;
+}
+.background {
+    height: 100vh;
+    background-image: url(../img/park.jpeg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+}
+#name-input {
+    position: absolute;
+    top: 31%;
+    left: 1%;
+}
+#email-input {
+    position: absolute;
+    top: 45%;
+    left: 1%;
+}
+#password-input {
+    position: absolute;
+    top: 59%;
+    left: 1%;
 }
 #register-container {
     position: absolute;
-    top: 39%;
-    left: 40%;
-    transform: translate(-50%, -50%);
+    top: 19%;
+    left: 14%;
     float: left;
+    width: 36%;
+    height: 51%;
+    background-color: rgba(0, 0, 0, 0.185);
+    border-radius: 4%;
 }
 #text-box {
     display: block;
-    width: 39%;
     position: absolute;
-    top: 13%;
-    left: 43%;
-    transform: translate(-50%, -50%);
-    font-size: 21px;
+    top: 0%;
+    left: 108%;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.185);
+    border-radius: 4%;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    padding-top: 33%;
+    letter-spacing: 3px;
+    font-family: 'Didact Gothic', sans-serif;
 }
 input {
-    padding: 7%;
-    width: 190%;
-    margin: 6%;
+    padding: 3%;
+    width: 93%;
+    font-size: 100%;
+    margin: 3%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.11);
+}
+::placeholder { 
+    color: white;
+    opacity: 1;
 }
 button {
-    padding: 6%;
-    margin-left: 6%;
-    margin-top: 3%;
+    padding: 4%;
+    width: 31%;
+    position: absolute;
+    left: 63%;
+    top: 80%;
+    background-color: rgba(255, 255, 255, 0.11);
+    color: white;
+    border-radius: 8px;
+    font-size: 100%;
+    border: 2px solid white;
+    border-top: 1px solid white;
+}
+button:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.39);
+    color: white;
 }
 h1 {
-    letter-spacing: 2px;
-    margin-left: 7%;
+    position: absolute;
+    top: 8%;
+    left: 15%;
+    letter-spacing: 5px;
 }
-@media only screen 
-  and (min-device-width: 375px) { 
-    #register-container {
-        left: 30%;
-    }
-    #text-box {
-        display: block;
-        width: 39%;
-        position: absolute;
-        top: 13%;
-        left: 40%;
-        transform: translate(-50%, -50%);
-        font-size: 28px;
-    }
+hr {
+    position: absolute;
+    top: 21%;
+    left: 35%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 45%;
+    width: 29%;
 }

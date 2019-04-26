@@ -29,11 +29,11 @@ h1 {
 }
 hr {
     position: absolute;
-    top: 45%;
-    left: 18%;
+    top: 29%;
+    left: 11%;
     border: 2px solid rgb(255, 255, 255);
-    border-radius: 41%;
-    width: 40%;
+    border-radius: 48%;
+    width: 8%;
 }
 button {
     border-radius: 8px;
