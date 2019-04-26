@@ -10,7 +10,10 @@ const eventSchema = new mongoose.Schema({
       ref: "User"
     }
   ],
-  owner: String,
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  },
   description: String,
   findUs: String
 });
