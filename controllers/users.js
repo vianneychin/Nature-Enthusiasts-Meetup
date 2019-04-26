@@ -22,9 +22,6 @@ module.exports = {
       res.send(err);
     }
   },
-  register: (req, res) => {
-    res.render("users/register.ejs");
-  },
   edit: async (req, res) => {
     try {
       const editUser = await User.findById(req.params.id);
