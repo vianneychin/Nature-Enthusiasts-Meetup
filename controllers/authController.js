@@ -10,6 +10,7 @@ module.exports = {
   },
   createLoginSession: async (req, res) => {
     try {
+      // Finding User in db that matches the email typed on the login form
       const foundUser = await User.findOne({ email: req.body.email });
       console.log(foundUser, "<-----log of the found user before if statement");
       console.log(req.body.email, "<----req.body.email");
@@ -37,7 +38,6 @@ module.exports = {
     try {
       const createdUser = await User.create(req.body);
       console.log(createdUser);
-      // res.send("createdUser");
       if (createdUser) {
         req.session.logged = true;
         req.session.usersDbId = createdUser._id;

@@ -39,8 +39,8 @@ module.exports = {
         .exec();
       console.log(foundEvent);
       res.render("events/show.ejs", {
-        event: foundEvent
-        // sessionId: req.session.usersDbId
+        event: foundEvent,
+        sessionId: req.session.usersDbId
       });
     } catch (err) {
       res.send(err);
