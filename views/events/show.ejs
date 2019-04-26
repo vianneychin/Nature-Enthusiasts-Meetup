@@ -23,7 +23,8 @@
     <div>
     <h3>Event Participants</h3>
     <ul>
-    </ul>    
+    </ul>  
+    </div>  
 
     <%if (event.owner._id.toString() === sessionId) {%>
         <section>
@@ -34,7 +35,9 @@
    <h3>Are you going?</h3>
    <%if (user._id.toString() === sessionId) {%>
         <div>
+    <form action="/events/<%=event._id%>" method="POST">
     <button type="submit">Yes</button>
+    </form>
     </div>
    <% } %>   
     </body>
