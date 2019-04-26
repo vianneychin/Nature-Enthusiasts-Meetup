@@ -25,6 +25,13 @@ module.exports = {
   },
   update: async (req, res) => {
     try {
+      const user = await User.findById(req.params.id);
+      if (!req.body.password) {
+        delete req.body.password;
+      } else {
+        req.body.password = user.hashPassword(req.body.password);
+        console.log(req.body.password);
+      }
       const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body);
       console.log(req.body);
       console.log(updatedUser);

@@ -1,4 +1,5 @@
 const Event = require("../models/events");
+const User = require("../models/users");
 
 module.exports = {
   index: async (req, res) => {
@@ -18,6 +19,8 @@ module.exports = {
   create: async (req, res) => {
     try {
       console.log(req.body);
+      const currentUser = await User.findById(req.session.usersDbId);
+      req.body.owner = currentUser;
       const newEvent = await Event.create(req.body);
       console.log(newEvent);
       res.redirect("/events");
@@ -27,7 +30,9 @@ module.exports = {
   },
   show: async (req, res) => {
     try {
-      const foundEvent = await Event.findById(req.params.id);
+      const foundEvent = await Event.findById(req.params.id)
+        .populate("owner")
+        .exec();
       console.log(foundEvent);
       res.render("events/show.ejs", {
         event: foundEvent
@@ -37,35 +42,37 @@ module.exports = {
       res.send(err);
     }
   },
-  edit: async(req,res) => {
+  edit: async (req, res) => {
     try {
-      const editEvent = await Event.findById(req.params.id)
-      console.log(editEvent)
-        res.render("events/edit.ejs", {
-          event: editEvent,
-          id: req.params.id
-      })
-    } catch(err){
-      res.send(err)
+      const editEvent = await Event.findById(req.params.id);
+      console.log(editEvent);
+      res.render("events/edit.ejs", {
+        event: editEvent,
+        id: req.params.id
+      });
+    } catch (err) {
+      res.send(err);
     }
   },
   update: async (req, res) => {
     try {
-      const updateEvent = await Event.findByIdAndUpdate(req.params.id, req.body);
+      const updateEvent = await Event.findByIdAndUpdate(
+        req.params.id,
+        req.body
+      );
       console.log(updateEvent);
       res.redirect("/events");
     } catch (err) {
       res.send(err);
     }
   },
-  destroy: async(req, res) => {
+  destroy: async (req, res) => {
     try {
-      const destroyedEvent = await Event.findByIdAndDelete(req.params.id)
-      console.log(destroyedEvent)
-      res.redirect("/events")
-    }
-    catch(err) {
-      res.send(err)
+      const destroyedEvent = await Event.findByIdAndDelete(req.params.id);
+      console.log(destroyedEvent);
+      res.redirect("/events");
+    } catch (err) {
+      res.send(err);
     }
   }
 };
