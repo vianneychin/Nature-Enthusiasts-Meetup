@@ -36,5 +36,26 @@ module.exports = {
     } catch (err) {
       res.send(err);
     }
-  }
+  },
+  edit: async(req,res) => {
+    try {
+      const editEvent = await Event.findById(req.params.id)
+      console.log(editEvent)
+        res.render("events/edit.ejs", {
+          event: editEvent,
+          id: req.params.id
+      })
+    } catch(err){
+      res.send(err)
+    }
+  },
+  update: async (req, res) => {
+    try {
+      const updateEvent = await Event.findByIdAndUpdate(req.params.id, req.body);
+      console.log(updateEvent);
+      res.redirect("/events");
+    } catch (err) {
+      res.send(err);
+    }
+  },
 };
