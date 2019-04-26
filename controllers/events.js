@@ -55,7 +55,9 @@ module.exports = {
       const foundEvent = await Event.findById(req.params.id)
         // populating the the owner object ID so that the owner name displays on show page
         .populate("owner")
+        .populate("participants")
         .exec();
+
       console.log(foundEvent);
       console.log(currentUser);
       res.render("events/show.ejs", {
