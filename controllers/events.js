@@ -27,6 +27,21 @@ module.exports = {
     catch(err) {
       res.render(err)
     }
+    },
+    show: (req,res)=> {
+      console.log("this function works")
     }
+    // show: async(req,res) => {
+    //   try { 
+    //     const foundEvent = await Event.findById(req.params.id)
+    //     console.log(foundEvent, "<====== the found event")
+    //     res.render("events/show.ejs", {
+    //       event: foundEvent
+    //     })
+    //   }
+    //   catch(err) {
+    //     res.render(err)
+    //   }
+    // }
 }
   

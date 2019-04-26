@@ -13,7 +13,7 @@
    <ul>
     <% for (let i = 0; i < event.length; i++) {%>
     <li>
-        <%=event[i].title%>
+        <a href="/events/<%event[i]._id%>"><%=event[i].title%></a>
     </li>
     <%}%>
     </ul>
