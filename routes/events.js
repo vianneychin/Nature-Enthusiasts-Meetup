@@ -5,7 +5,9 @@ const eventController = require("../controllers/events");
 router.get("/", eventController.index);
 router.get("/new", eventController.new);
 router.post("/", eventController.create);
-router.get("/:id", eventController.show);
+router.get('/:id', eventController.show)
+
+
 
 
 
