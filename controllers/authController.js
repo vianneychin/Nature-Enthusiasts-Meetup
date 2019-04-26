@@ -15,7 +15,10 @@ module.exports = {
   login: (req, res) => {
     res.render("login.ejs");
   },
-  createSession: async (req, res) => {
+  register: (req, res) => {
+    res.render("register.ejs");
+  },
+  createLoginSession: async (req, res) => {
     try {
       const foundUser = await User.findOne({ email: req.body.email });
       console.log(foundUser, "<-----log of the found user before if statement");
@@ -35,6 +38,22 @@ module.exports = {
       } else {
         console.log("This this not a valid email or password");
         res.redirect("/auth/login");
+      }
+    } catch (err) {
+      res.send(err);
+    }
+  },
+  createRegisterSession: async (req, res) => {
+    try {
+      const createdUser = await User.create(req.body);
+      console.log(createdUser);
+      // res.send("createdUser");
+      if (createdUser) {
+        req.session.logged = true;
+        req.session.usersDbId = createdUser._id;
+        console.log(req.session, "<---- req.session ");
+        console.log(req.session.usersDbId, "<---- req.session.usersDbId");
+        res.redirect("/user");
       }
     } catch (err) {
       res.send(err);
