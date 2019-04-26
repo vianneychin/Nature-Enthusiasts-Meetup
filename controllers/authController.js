@@ -2,16 +2,6 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/users");
 
 module.exports = {
-  test: (req, res) => {
-    console.log("=========================");
-    console.log(req.session);
-    console.log("=========================");
-    req.session.myOwnPropertyIMadeUp = "Cheese";
-    console.log("=========================");
-    console.log(req.session);
-    console.log("=========================");
-    res.send("hi test");
-  },
   login: (req, res) => {
     res.render("login.ejs");
   },
@@ -20,6 +10,7 @@ module.exports = {
   },
   createLoginSession: async (req, res) => {
     try {
+      // Finding User in db that matches the email typed on the login form
       const foundUser = await User.findOne({ email: req.body.email });
       console.log(foundUser, "<-----log of the found user before if statement");
       console.log(req.body.email, "<----req.body.email");
@@ -47,7 +38,6 @@ module.exports = {
     try {
       const createdUser = await User.create(req.body);
       console.log(createdUser);
-      // res.send("createdUser");
       if (createdUser) {
         req.session.logged = true;
         req.session.usersDbId = createdUser._id;

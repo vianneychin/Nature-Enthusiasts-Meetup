@@ -25,7 +25,11 @@
     <ul>
     </ul>    
 
-    <a href="/events/<%=event._id%>/edit">
-        <button type="submit">Edit</button></a>
+
+    <%if (event.owner._id.toString() === sessionId) {%>
+        <section>
+    <a href="/events/<%=event._id%>/edit">Edit Event</a>
+    </section>
+   <% } %>  
     </body>
 </html>
