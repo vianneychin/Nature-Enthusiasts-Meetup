@@ -33,12 +33,15 @@ module.exports = {
   },
   show: async (req, res) => {
     try {
+      const currentUser = await User.findById(req.session.usersDbId);
       const foundEvent = await Event.findById(req.params.id)
         // populating the the owner object ID so that the owner name displays on show page
         .populate("owner")
         .exec();
       console.log(foundEvent);
+      console.log(currentUser);
       res.render("events/show.ejs", {
+        user: currentUser,
         event: foundEvent,
         sessionId: req.session.usersDbId
       });
