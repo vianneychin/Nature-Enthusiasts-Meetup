@@ -13,9 +13,8 @@
 }
 .parent-header {
     width: 44%;
-    height: 74%;
-    background: rgba(0, 0, 0, 0.35);
-    top: 7%;
+    height: 34%;
+    top: 35%;
     left: 29%;
     position: absolute;
     justify-content: center;
@@ -24,42 +23,56 @@
     color: rgba(245, 245, 245, .8);
 }
 h1 {
-    line-height: 5rem;
-    font-size: 229%;
-    color: white;
+    line-height: 7rem;
+    font-size: 68px;
+    color: rgb(255, 255, 255);
     letter-spacing: 15px;
+    font-family: 'Julius Sans One', sans-serif;
+    margin-left: -141px;
+    font-weight: 100;
+}
+hr {
+    position: absolute;
+    top: 45%;
+    left: 31%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 81%;
+    width: 40%;
 }
 p {
-    width: 93%;
-    height: 11%;
+    width: 182%;
+    height: 21%;
     position: absolute;
-    top: 23%;
-    left: 2%;
+    top: 59%;
+    left: -38%;
+    font-size: 127%;
+    letter-spacing: 4px;
 }
 button {
-    width: 50%;
-    height: 11%;
-    color: white;
-    font-size: 22px;
-    letter-spacing: 5px;
+    width: 49%;
+    height: 16%;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    letter-spacing: 6px;
+    font-weight: bolder;
     display: block;
     position: absolute;
-    left: 136px;
-    background-color: rgba(255, 255, 255, 0.199);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 22px;
+    font-family: 'Julius Sans One', sans-serif;
 }
 .login-button {
-    top: 69%;
+    top: 115%;
     left: 25%;
 }
 .sign-up-button {
-    top: 54%;
+    top: 94%;
     left: 25%;
 }
 button:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.39);
-    color: white;
+    color: rgb(0, 0, 0);
 }
 button:focus {
     outline:0;
