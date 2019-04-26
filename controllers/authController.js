@@ -15,7 +15,10 @@ module.exports = {
   login: (req, res) => {
     res.render("login.ejs");
   },
-  createSession: async (req, res) => {
+  register: (req, res) => {
+    res.render("register.ejs");
+  },
+  createLoginSession: async (req, res) => {
     try {
       const foundUser = await User.findOne({ email: req.body.email });
       console.log(foundUser, "<-----log of the found user before if statement");
@@ -26,6 +29,7 @@ module.exports = {
           req.session.usersDbId = foundUser._id;
           console.log(foundUser, "<---- this is the foundUser ");
           console.log(req.session, "<---- console log of req.session");
+          console.log(req.session.usersDbId, "<---- usersDbId");
           res.redirect("/events");
         } else {
           console.log("invalid email or password");
@@ -38,5 +42,30 @@ module.exports = {
     } catch (err) {
       res.send(err);
     }
+  },
+  createRegisterSession: async (req, res) => {
+    try {
+      const createdUser = await User.create(req.body);
+      console.log(createdUser);
+      // res.send("createdUser");
+      if (createdUser) {
+        req.session.logged = true;
+        req.session.usersDbId = createdUser._id;
+        console.log(req.session, "<---- req.session ");
+        console.log(req.session.usersDbId, "<---- req.session.usersDbId");
+        res.redirect("/user");
+      }
+    } catch (err) {
+      res.send(err);
+    }
+  },
+  destroy: (req, res) => {
+    req.session.destroy(err => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.redirect("/auth/login");
+      }
+    });
   }
 };
