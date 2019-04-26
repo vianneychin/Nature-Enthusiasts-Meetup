@@ -11,11 +11,14 @@
          <h3>Event's Information</h3>
     <ul>
         <li>Title: <%=event.title%></li>
+        <li>Location: <%=event.location%></li>
+        <li>Date: <%=event.date%></li>
+        <li>participants: <%=event.participants%></li>
+        <li>owner: <%=event.owner%></li>
+        <li>description: <%=event.description%></li>
+        <li>Where to find us: <%=event.findUs%></li>
     </ul>
-
-        
-
-
-
+    <a href="/events/<%=event._id%>/edit">
+        <button type="submit">Edit</button></a>
     </body>
 </html>
