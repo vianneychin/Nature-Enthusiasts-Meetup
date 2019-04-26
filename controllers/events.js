@@ -58,4 +58,14 @@ module.exports = {
       res.send(err);
     }
   },
+  destroy: async(req, res) => {
+    try {
+      const destroyedEvent = await Event.findByIdAndDelete(req.params.id)
+      console.log(destroyedEvent)
+      res.redirect("/events")
+    }
+    catch(err) {
+      res.send(err)
+    }
+  }
 };
