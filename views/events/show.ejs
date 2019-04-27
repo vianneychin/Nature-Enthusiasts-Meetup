@@ -4,14 +4,14 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/modal.css">
         <script src=".../public/js/app.js"></script>
     </head>
     <body>
     <h1>This is the events show page</h1>
     <div>
-         <h3>Event's Information</h3>
-         Owner: <small><%=event.owner.name%></small>
+         <h3><%=event.title%></h3>
+         Organized by: <small><%=event.owner.name%></small>
     <ul>
         <li>Title: <%=event.title%></li>
         <li>Location: <%=event.location%></li>
@@ -43,6 +43,7 @@
     </form>
     </div>
    <% } %>   
+
 
    <%if (event.owner._id.toString() === sessionId) {%>
    <div>
