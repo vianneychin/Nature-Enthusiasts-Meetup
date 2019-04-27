@@ -8,17 +8,17 @@
     </head>
     <body>
     <h1>This is the user show page</h1>
-    <section>
+    <div>
     <h3>User's Information</h3>
     <ul>
         <li>Name: <%=user.name%></li>
         <li>Email: <%=user.email%></li>
     </ul>
-    </section>
+    </div>
     <%if (user._id.toString() === sessionId) {%>
-        <section>
+        <div>
     <a href="/user/<%=user._id%>/edit">Edit Account</a>
-    </section>
+    </div>
    <% } %>    
     </body>
 </html>

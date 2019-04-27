@@ -77,8 +77,8 @@ module.exports = {
         .populate("participants")
         .exec();
 
-      console.log(foundEvent);
-      console.log(currentUser);
+      console.log(foundEvent, "<---- foundEvent");
+      console.log(currentUser, "<---- currentUser");
       res.render("events/show.ejs", {
         user: currentUser,
         event: foundEvent,

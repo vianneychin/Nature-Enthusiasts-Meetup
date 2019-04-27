@@ -8,7 +8,7 @@
     </head>
     <body>
     <h1>This is the events show page</h1>
-    <section>
+    <div>
          <h3>Event's Information</h3>
          Owner: <small><%=event.owner.name%></small>
     <ul>
@@ -18,7 +18,7 @@
         <li>description: <%=event.description%></li>
         <li>Where to find us: <%=event.findUs%></li>
     </ul>
-    </section>
+    </div>
     <div>
     <h3>Event Participants</h3>
     <ul>
@@ -29,9 +29,9 @@
     </div>  
 
     <%if (event.owner._id.toString() === sessionId) {%>
-        <section>
+        <div>
     <a href="/events/<%=event._id%>/edit">Edit Event</a>
-    </section>
+    </div>
    <% } %>  
 
    <h3>Are you going?</h3>
@@ -42,5 +42,14 @@
     </form>
     </div>
    <% } %>   
+
+   <%if (event.owner._id.toString() === sessionId) {%>
+   <div>
+   <h3>Event Owner Options</h3>
+        <form action="/events/<%=event._id%>?_method=DELETE" method="POST">
+            <button type="submit">Delete Event</button>
+        </form>
+    </div>  
+    <%}%>
     </body>
 </html>

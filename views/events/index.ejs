@@ -19,7 +19,14 @@
     </ul>
     </div>
     <div>
+    <ul>
     <h2>Upcoming Events For Logged In User</h2>
+    <% for (let i = 0; i < userEvents.length; i++) {%>
+        <a href="/events/<%=userEvents[i]._id%>"><li><%=userEvents[i].title%></li></a>
+        <li><%=userEvents[i].date%></li>
+        
+    <%}%>   
+    </ul> 
     </div>
     </body>
 </html>
