@@ -11,7 +11,7 @@
     <h1>This is the events show page</h1>
     <div>
          <h3><%=event.title%></h3>
-         Organized by: <small><%=event.owner.name%></small>
+         Organized by: <a href="/user/<%=event.owner._id%>/"><small><%=event.owner.name%></small>
     <ul>
         <li>Location: <%=event.location%></li>
         <li>Date: <%=event.date%></li>
