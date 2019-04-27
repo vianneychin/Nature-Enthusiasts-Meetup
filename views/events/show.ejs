@@ -23,7 +23,7 @@
     <h3>Event Participants</h3>
     <ul>
     <% for (let i = 0; i < event.participants.length; i++) {%>
-    <li><a href="/user/<%=event.partcipants[i]._id%>/edit"><%=event.participants[i].name%></li>
+    <li><a href="/user/<%=event.participants[i]._id%>"><%=event.participants[i].name%></li></a>
     <%}%>
     </ul>  
     </div>  
