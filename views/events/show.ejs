@@ -4,15 +4,15 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/modal.css">
+        <script src=".../public/js/app.js"></script>
     </head>
     <body>
     <h1>This is the events show page</h1>
     <div>
-         <h3>Event's Information</h3>
-         Owner: <small><%=event.owner.name%></small>
+         <h3><%=event.title%></h3>
+         Organized by: <a href="/user/<%=event.owner._id%>/"><small><%=event.owner.name%></small></a>
     <ul>
-        <li>Title: <%=event.title%></li>
         <li>Location: <%=event.location%></li>
         <li>Date: <%=event.date%></li>
         <li>description: <%=event.description%></li>
@@ -23,16 +23,10 @@
     <h3>Event Participants</h3>
     <ul>
     <% for (let i = 0; i < event.participants.length; i++) {%>
-    <li><%=event.participants[i].name%></li>
+    <li><a href="/user/<%=event.participants[i]._id%>"><%=event.participants[i].name%></li></a>
     <%}%>
     </ul>  
     </div>  
-
-    <%if (event.owner._id.toString() === sessionId) {%>
-        <div>
-    <a href="/events/<%=event._id%>/edit">Edit Event</a>
-    </div>
-   <% } %>  
 
    <h3>Are you going?</h3>
    <%if (user._id.toString() === sessionId) {%>
@@ -43,12 +37,18 @@
     </div>
    <% } %>   
 
+
    <%if (event.owner._id.toString() === sessionId) {%>
    <div>
    <h3>Event Owner Options</h3>
         <form action="/events/<%=event._id%>?_method=DELETE" method="POST">
-            <button type="submit">Delete Event</button>
+            <button type="submit" class="yes-btn">Delete Event</button>
         </form>
+        
+        <div>
+            <a href="/events/<%=event._id%>/edit">Edit Event</a>
+        </div>
+
     </div>  
     <%}%>
     </body>
