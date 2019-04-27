@@ -4,9 +4,28 @@ const User = require("../models/users");
 module.exports = {
   index: async (req, res) => {
     try {
-      const allEvents = await Event.find({});
+      const currentUser = await User.findById(req.session.usersDbId);
+      const allEvents = await Event.find({})
+        .populate("participants")
+        .exec();
+      const currentEvents = [];
+      console.log(currentUser, allEvents);
+      for (let i = 0; i < allEvents.length; i++) {
+        console.log(allEvents[i].participants, currentUser);
+        for (let j = 0; j < allEvents[i].participants.length; j++) {
+          if (
+            allEvents[i].participants[j]._id.toString() ===
+            currentUser._id.toString()
+          ) {
+            currentEvents.push(allEvents[i]);
+          }
+        }
+      }
+      console.log(currentEvents, "current EVENTS DSDFSDF");
       res.render("events/index.ejs", {
-        event: allEvents
+        event: allEvents,
+        userEvents: currentEvents,
+        user: currentUser
       });
     } catch (err) {
       res.send(err);
