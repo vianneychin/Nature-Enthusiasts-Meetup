@@ -50,17 +50,18 @@ body {
     height: 100%;
     width: 100%;
     padding: 10%;
-    padding-top: 33%;
+    padding-top: 29%;
     letter-spacing: 3px;
     font-family: 'Didact Gothic', sans-serif;
 }
 input {
-    padding: 3%;
+    padding: 2%;
     width: 93%;
     font-size: 100%;
     margin: 3%;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.11);
+    color: white;
 }
 ::placeholder { 
     color: white;
@@ -85,16 +86,18 @@ button:hover {
     color: white;
 }
 h1 {
+    font-family: 'Julius Sans One', sans-serif;
     position: absolute;
-    top: 8%;
-    left: 15%;
-    letter-spacing: 5px;
+    top: 9%;
+    font-size: 37px;
+    left: 7%;
+    letter-spacing: 12px;
 }
 hr {
     position: absolute;
-    top: 21%;
-    left: 35%;
+    top: 23%;
+    left: 41%;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 45%;
-    width: 29%;
+    width: 16%;
 }
