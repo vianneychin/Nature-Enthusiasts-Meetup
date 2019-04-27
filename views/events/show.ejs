@@ -13,7 +13,6 @@
          <h3><%=event.title%></h3>
          Organized by: <small><%=event.owner.name%></small>
     <ul>
-        <li>Title: <%=event.title%></li>
         <li>Location: <%=event.location%></li>
         <li>Date: <%=event.date%></li>
         <li>description: <%=event.description%></li>
@@ -28,12 +27,6 @@
     <%}%>
     </ul>  
     </div>  
-
-    <%if (event.owner._id.toString() === sessionId) {%>
-        <div>
-    <a href="/events/<%=event._id%>/edit">Edit Event</a>
-    </div>
-   <% } %>  
 
    <h3>Are you going?</h3>
    <%if (user._id.toString() === sessionId) {%>
@@ -51,6 +44,11 @@
         <form action="/events/<%=event._id%>?_method=DELETE" method="POST">
             <button type="submit" class="yes-btn">Delete Event</button>
         </form>
+        
+        <div>
+            <a href="/events/<%=event._id%>/edit">Edit Event</a>
+        </div>
+
     </div>  
     <%}%>
     </body>
