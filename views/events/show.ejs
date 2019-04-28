@@ -37,6 +37,12 @@
     </div>
    <% } %>   
 
+   <% for (let i = 0; i < event.participants.length; i++) {%>
+    <%if (event.participants[i]._id = sessionId) {%>
+        <button type="submit">Cancel Participation</button>
+    <%}%>
+    <%}%>
+
 
    <%if (event.owner._id.toString() === sessionId) {%>
    <div>
