@@ -59,6 +59,7 @@ module.exports = {
       console.log(foundEvent, "<---- foundEvent");
       foundEvent.participants.push(currentUser);
       foundEvent.save();
+      res.redirect("/events");
       console.log(foundEvent, "<---- foundEvent after user is put in");
     } catch (err) {
       res.send(err);
