@@ -32,7 +32,7 @@
    <%if (user._id.toString() === sessionId) {%>
         <div>
     <form action="/events/<%=event._id%>" method="POST">
-    <button type="submit">Yes</button>
+    <button type="submit" class="yes-btn">Yes</button>
     </form>
     </div>
    <% } %>   
