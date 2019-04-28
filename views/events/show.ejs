@@ -5,7 +5,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/modal.css">
-        <script src=".../public/js/app.js"></script>
     </head>
     <body>
     <h1>This is the events show page</h1>
@@ -20,7 +19,12 @@
     </ul>
     </div>
     <div>
-    <h3>Event Participants</h3>
+    
+    <%let sum = 0%>
+    <% for (let i = 0; i < event.participants.length; i++) {%>
+        <% sum += 1%>
+        <%}%>
+    <h3>Event Participants (<%=sum%>)</h3>
     <ul>
     <% for (let i = 0; i < event.participants.length; i++) {%>
     <li><a href="/user/<%=event.participants[i]._id%>"><%=event.participants[i].name%></li></a>
@@ -32,14 +36,16 @@
    <%if (user._id.toString() === sessionId) {%>
         <div>
     <form action="/events/<%=event._id%>" method="POST">
-    <button type="submit">Yes</button>
+    <button type="submit" class="yes-btn">Yes</button>
     </form>
     </div>
    <% } %>   
 
    <% for (let i = 0; i < event.participants.length; i++) {%>
     <%if (event.participants[i]._id = sessionId) {%>
-        <button type="submit">Cancel Participation</button>
+        <form action="/events/<%=event._id%>" method="POST">
+            <button type="submit" class="cancel-btn">Cancel Participation</button>
+        </form>
     <%}%>
     <%}%>
 
@@ -57,5 +63,9 @@
 
     </div>  
     <%}%>
+
+
+
+    <script src=".../public/js/app.js"></script>
     </body>
 </html>
