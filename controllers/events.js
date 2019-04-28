@@ -9,9 +9,9 @@ module.exports = {
         .populate("participants")
         .exec();
       const currentEvents = [];
-      console.log(currentUser, allEvents);
+      // console.log(currentUser, allEvents);
       for (let i = 0; i < allEvents.length; i++) {
-        console.log(allEvents[i].participants, currentUser);
+        // console.log(allEvents[i].participants, currentUser);
         for (let j = 0; j < allEvents[i].participants.length; j++) {
           if (
             allEvents[i].participants[j]._id.toString() ===
@@ -51,23 +51,41 @@ module.exports = {
     }
   },
   joinEvent: async (req, res) => {
-    console.log("button is clicked");
+    console.log("yes button is clicked <--- event controller console log");
     try {
       const currentUser = await User.findById(req.session.usersDbId);
-      console.log(currentUser, "<---- currentUser");
+      // console.log(currentUser, "<---- currentUser");
       const foundEvent = await Event.findById(req.params.id);
-      console.log(foundEvent, "<---- foundEvent");
+      // console.log(foundEvent, "<---- foundEvent");
       foundEvent.participants.push(currentUser);
       foundEvent.save();
       res.redirect("/events");
-      console.log(foundEvent, "<---- foundEvent after user is put in");
+      // console.log(foundEvent, "<---- foundEvent after user is put in");
     } catch (err) {
       res.send(err);
     }
 
     // When the user that is signed in clicks the yes button on the event show page
     // Add the user to that event's participants array
-    // const currentUser = await User.findById(req.session.usersDbId)
+  },
+  leaveEvent: async (req, res) => {
+    // When the user clicks the cancel participation button,
+    // I want to look through that event's participants for the signed in
+    // user's ID and remove them from the participants array.
+    console.log("cancel button pressed");
+    try {
+      const currentUser = await User.findById(req.session.usersDbId);
+      // console.log(currentUser, "<---- currentUser");
+      const foundEvent = await Event.findById(req.params.id);
+      // console.log(foundEvent, "<---- foundEvent");
+      const removeUser = await foundEvent.participants.indexOf(currentUser);
+      foundEvent.participants.splice(removeUser, 1);
+      foundEvent.save();
+      res.redirect("/events");
+      // console.log(foundEvent, "<---- foundEvent after user is put in");
+    } catch (err) {
+      res.send(err);
+    }
   },
   show: async (req, res) => {
     try {
@@ -78,8 +96,8 @@ module.exports = {
         .populate("participants")
         .exec();
 
-      console.log(foundEvent, "<---- foundEvent");
-      console.log(currentUser, "<---- currentUser");
+      // console.log(foundEvent, "<---- foundEvent");
+      // console.log(currentUser, "<---- currentUser");
       res.render("events/show.ejs", {
         user: currentUser,
         event: foundEvent,
@@ -92,7 +110,7 @@ module.exports = {
   edit: async (req, res) => {
     try {
       const editEvent = await Event.findById(req.params.id);
-      console.log(editEvent);
+      // console.log(editEvent);
       res.render("events/edit.ejs", {
         event: editEvent,
         id: req.params.id
