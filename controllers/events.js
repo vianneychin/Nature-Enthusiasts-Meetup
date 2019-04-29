@@ -146,7 +146,8 @@ module.exports = {
         // console.log(editEvent);
         res.render("events/edit.ejs", {
           event: editEvent,
-          id: req.params.id
+          id: req.params.id,
+          user: req.session.usersDbId
         });
       } catch (err) {
         res.send(err);
