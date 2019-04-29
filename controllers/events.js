@@ -120,15 +120,19 @@ module.exports = {
     }
   },
   edit: async (req, res) => {
-    try {
-      const editEvent = await Event.findById(req.params.id);
-      // console.log(editEvent);
-      res.render("events/edit.ejs", {
-        event: editEvent,
-        id: req.params.id
-      });
-    } catch (err) {
-      res.send(err);
+    if (req.session.logged === true)
+      try {
+        const editEvent = await Event.findById(req.params.id);
+        // console.log(editEvent);
+        res.render("events/edit.ejs", {
+          event: editEvent,
+          id: req.params.id
+        });
+      } catch (err) {
+        res.send(err);
+      }
+    else {
+      res.redirect("/auth/login");
     }
   },
   update: async (req, res) => {
