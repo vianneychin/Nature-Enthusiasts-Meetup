@@ -37,7 +37,11 @@ module.exports = {
   },
 
   new: (req, res) => {
-    res.render("events/new.ejs");
+    if (req.session.logged === true) {
+      res.render("events/new.ejs");
+    } else {
+      res.redirect("/auth/login");
+    }
   },
   create: async (req, res) => {
     try {
