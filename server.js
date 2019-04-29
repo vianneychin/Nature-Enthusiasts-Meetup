@@ -8,6 +8,7 @@ const userRouter = require("./routes/users");
 const eventRouter = require("./routes/events");
 const authRouter = require("./routes/auth");
 const session = require("express-session");
+const flash = require("express-flash");
 require("./db/db");
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,6 +22,9 @@ app.use(
     saveUninitialized: false
   })
 );
+
+app.use(flash());
+
 app.use(logger("dev"));
 // adding static style
 app.use(express.static("public"));
