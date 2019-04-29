@@ -10,6 +10,6 @@ router.get("/:id/edit", eventController.edit);
 router.put("/:id", eventController.update);
 router.delete("/:id", eventController.destroy);
 router.post("/:id", eventController.joinEvent);
-router.post("/:id", eventController.leaveEvent);
+router.post("/leave/:id", eventController.leaveEvent);
 
 module.exports = router;

@@ -13,7 +13,7 @@
          Organized by: <a href="/user/<%=event.owner._id%>/"><small><%=event.owner.name%></small></a>
     <ul>
         <li>Location: <%=event.location%></li>
-        <li>Date: <%=event.date%></li>
+        <li>Date: <%=event.date.toDateString()%></li>
         <li>description: <%=event.description%></li>
         <li>Where to find us: <%=event.findUs%></li>
     </ul>
@@ -33,17 +33,20 @@
     </div>  
 
    <h3>Are you going?</h3>
+   <h4><%= session.joinMessage %></h4>
    <%if (user._id.toString() === sessionId) {%>
-        <div>
-    <form action="/events/<%=event._id%>" method="POST">
-    <button type="submit" class="yes-btn">Yes</button>
-    </form>
-    </div>
-   <% } %>   
+        <% if (!isAttending) {%>
+            <div>
+                <form action="/events/<%=event._id%>" method="POST">
+                <button type="submit" class="yes-btn">Yes</button>
+                </form>
+            </div>
+    <%}%>
+   <%}%> 
 
    <% for (let i = 0; i < event.participants.length; i++) {%>
-    <%if (event.participants[i]._id = sessionId) {%>
-        <form action="/events/<%=event._id%>" method="POST">
+    <%if (event.participants[i]._id.toString() === sessionId) {%>
+        <form action="/events/leave/<%=event._id%>" method="POST">
             <button type="submit" class="cancel-btn">Cancel Participation</button>
         </form>
     <%}%>
@@ -66,6 +69,6 @@
 
 
 
-    <script src=".../public/js/app.js"></script>
+    <script src="/js/app.js"></script>
     </body>
 </html>
