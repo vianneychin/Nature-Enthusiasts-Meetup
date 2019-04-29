@@ -3,32 +3,36 @@ const User = require("../models/users");
 
 module.exports = {
   index: async (req, res) => {
-    try {
-      const currentUser = await User.findById(req.session.usersDbId);
-      const allEvents = await Event.find({})
-        .populate("participants")
-        .exec();
-      const currentEvents = [];
-      // console.log(currentUser, allEvents);
-      for (let i = 0; i < allEvents.length; i++) {
-        // console.log(allEvents[i].participants, currentUser);
-        for (let j = 0; j < allEvents[i].participants.length; j++) {
-          if (
-            allEvents[i].participants[j]._id.toString() ===
-            currentUser._id.toString()
-          ) {
-            currentEvents.push(allEvents[i]);
+    if (req.session.logged === true)
+      try {
+        const currentUser = await User.findById(req.session.usersDbId);
+        const allEvents = await Event.find({})
+          .populate("participants")
+          .exec();
+        const currentEvents = [];
+        // console.log(currentUser, allEvents);
+        for (let i = 0; i < allEvents.length; i++) {
+          // console.log(allEvents[i].participants, currentUser);
+          for (let j = 0; j < allEvents[i].participants.length; j++) {
+            if (
+              allEvents[i].participants[j]._id.toString() ===
+              currentUser._id.toString()
+            ) {
+              currentEvents.push(allEvents[i]);
+            }
           }
         }
+        console.log(currentEvents, "current EVENTS DSDFSDF");
+        res.render("events/index.ejs", {
+          event: allEvents,
+          userEvents: currentEvents,
+          user: currentUser
+        });
+      } catch (err) {
+        res.send(err);
       }
-      console.log(currentEvents, "current EVENTS DSDFSDF");
-      res.render("events/index.ejs", {
-        event: allEvents,
-        userEvents: currentEvents,
-        user: currentUser
-      });
-    } catch (err) {
-      res.send(err);
+    else {
+      res.redirect("/auth/login");
     }
   },
 
