@@ -3,37 +3,45 @@ const User = require("../models/users");
 
 module.exports = {
   index: async (req, res) => {
-    try {
-      const currentUser = await User.findById(req.session.usersDbId);
-      const allEvents = await Event.find({})
-        .populate("participants")
-        .exec();
-      const currentEvents = [];
-      // console.log(currentUser, allEvents);
-      for (let i = 0; i < allEvents.length; i++) {
-        // console.log(allEvents[i].participants, currentUser);
-        for (let j = 0; j < allEvents[i].participants.length; j++) {
-          if (
-            allEvents[i].participants[j]._id.toString() ===
-            currentUser._id.toString()
-          ) {
-            currentEvents.push(allEvents[i]);
+    if (req.session.logged === true)
+      try {
+        const currentUser = await User.findById(req.session.usersDbId);
+        const allEvents = await Event.find({})
+          .populate("participants")
+          .exec();
+        const currentEvents = [];
+        // console.log(currentUser, allEvents);
+        for (let i = 0; i < allEvents.length; i++) {
+          // console.log(allEvents[i].participants, currentUser);
+          for (let j = 0; j < allEvents[i].participants.length; j++) {
+            if (
+              allEvents[i].participants[j]._id.toString() ===
+              currentUser._id.toString()
+            ) {
+              currentEvents.push(allEvents[i]);
+            }
           }
         }
+        console.log(currentEvents, "current EVENTS DSDFSDF");
+        res.render("events/index.ejs", {
+          event: allEvents,
+          userEvents: currentEvents,
+          user: currentUser
+        });
+      } catch (err) {
+        res.send(err);
       }
-      console.log(currentEvents, "current EVENTS DSDFSDF");
-      res.render("events/index.ejs", {
-        event: allEvents,
-        userEvents: currentEvents,
-        user: currentUser
-      });
-    } catch (err) {
-      res.send(err);
+    else {
+      res.redirect("/auth/login");
     }
   },
 
   new: (req, res) => {
-    res.render("events/new.ejs");
+    if (req.session.logged === true) {
+      res.render("events/new.ejs");
+    } else {
+      res.redirect("/auth/login");
+    }
   },
   create: async (req, res) => {
     try {
@@ -88,35 +96,43 @@ module.exports = {
     }
   },
   show: async (req, res) => {
-    try {
-      const currentUser = await User.findById(req.session.usersDbId);
-      const foundEvent = await Event.findById(req.params.id)
-        // populating the the owner object ID so that the owner name displays on show page
-        .populate("owner")
-        .populate("participants")
-        .exec();
+    if (req.session.logged === true)
+      try {
+        const currentUser = await User.findById(req.session.usersDbId);
+        const foundEvent = await Event.findById(req.params.id)
+          // populating the the owner object ID so that the owner name displays on show page
+          .populate("owner")
+          .populate("participants")
+          .exec();
 
-      // console.log(foundEvent, "<---- foundEvent");
-      // console.log(currentUser, "<---- currentUser");
-      res.render("events/show.ejs", {
-        user: currentUser,
-        event: foundEvent,
-        sessionId: req.session.usersDbId
-      });
-    } catch (err) {
-      res.send(err);
+        // console.log(foundEvent, "<---- foundEvent");
+        // console.log(currentUser, "<---- currentUser");
+        res.render("events/show.ejs", {
+          user: currentUser,
+          event: foundEvent,
+          sessionId: req.session.usersDbId
+        });
+      } catch (err) {
+        res.send(err);
+      }
+    else {
+      res.redirect("/auth/login");
     }
   },
   edit: async (req, res) => {
-    try {
-      const editEvent = await Event.findById(req.params.id);
-      // console.log(editEvent);
-      res.render("events/edit.ejs", {
-        event: editEvent,
-        id: req.params.id
-      });
-    } catch (err) {
-      res.send(err);
+    if (req.session.logged === true)
+      try {
+        const editEvent = await Event.findById(req.params.id);
+        // console.log(editEvent);
+        res.render("events/edit.ejs", {
+          event: editEvent,
+          id: req.params.id
+        });
+      } catch (err) {
+        res.send(err);
+      }
+    else {
+      res.redirect("/auth/login");
     }
   },
   update: async (req, res) => {
