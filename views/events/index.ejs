@@ -50,7 +50,7 @@
                     <a class="my-events" href="/events/<%=userEvents[i]._id%>">
                         <li><%=userEvents[i].title%></li>
                         <br>
-                        <li><%=userEvents[i].date%></li>
+                        <li><%=userEvents[i].date.toDateString()%></li>
                     </a>
                     
                 <%}%>   
@@ -58,27 +58,6 @@
             </div>
         </section>
 
-    <h1>This is the events index page</h1>
-    <div>
-    <h1>List of Events</h1>
-   <ul>
-    <% for (let i = 0; i < event.length; i++) {%>
-    <li>
-        <a href="/events/<%=event[i]._id%>"><%=event[i].title%></a>
-    </li>
-    <%}%>
-    </ul>
-    </div>
-    <div>
-    <ul>
-    <h2>Upcoming Events For Logged In User</h2>
-    <% for (let i = 0; i < userEvents.length; i++) {%>
-        <a href="/events/<%=userEvents[i]._id%>"><li><%=userEvents[i].title%></li></a>
-        <li><%=userEvents[i].date.toDateString()%></li>
-        
-    <%}%>   
-    </ul> 
-    </div>
-
+    
     </body>
 </html>

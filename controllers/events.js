@@ -52,7 +52,16 @@ module.exports = {
       req.body.owner = currentUser;
       // Creating the new event
       const newEvent = await Event.create(req.body);
-      console.log(newEvent);
+      console.log(
+        newEvent,
+        "<--- newEvent BEFORE pushing owner into participants array"
+      );
+      newEvent.participants.push(currentUser);
+      newEvent.save();
+      console.log(
+        newEvent,
+        "<--- newEvent AFTER pushing owner into participants array"
+      );
       res.redirect("/events");
     } catch (err) {
       res.render(err);
