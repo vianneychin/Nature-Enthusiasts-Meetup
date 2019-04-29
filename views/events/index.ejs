@@ -4,39 +4,57 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
         <link rel="stylesheet" href="/css/events.css">
     </head>
     <body>
-    <div id="first-background-picture">
-    <nav>
-        <div class="nav-bar">about</div>
-        <div class="nav-bar">home</div>
-        <div class="nav-bar">events</div>
-        <div class="nav-bar">profile</div>
-        <div class="nav-bar">logout</div>
-    </nav>
-    <h1 class="events-title">welcome to californature</h1>
-    </div>
-    <h1>This is the events index page</h1>
-    <div>
-    <h1>List of Events</h1>
-   <ul>
-    <% for (let i = 0; i < event.length; i++) {%>
-    <li>
-        <a href="/events/<%=event[i]._id%>"><%=event[i].title%></a>
-    </li>
-    <%}%>
-    </ul>
-    </div>
-    <div>
-    <ul>
-    <h2>Upcoming Events For Logged In User</h2>
-    <% for (let i = 0; i < userEvents.length; i++) {%>
-        <a href="/events/<%=userEvents[i]._id%>"><li><%=userEvents[i].title%></li></a>
-        <li><%=userEvents[i].date%></li>
-        
-    <%}%>   
-    </ul> 
-    </div>
+        <div id="first-background-picture">
+        <div id="nav-bar-container">
+            <nav>
+                <div class="nav-bar grow"><a>about</a></div>
+                <div class="nav-bar grow"><a>home</a></div>
+                <div class="nav-bar grow"><a>profile</a></div>
+                <div class="nav-bar grow"><a>logout</a></div>
+            </nav>
+        </div>
+            <h1 class="events-title">This is Californature</h1>
+            <hr>
+            <div class="down-arrow">
+            <a>
+                <div class="arrow"></div>
+            </a>
+            </div>
+        </div>
+    <%# --------------first page finished-------------------------- %>
+    <section class="background">
+        <h1 class="events-bulletin">Events Bulletin</h1>
+        <section class="events-section">
+            <div class="event-container">
+                <h1 class="event-titles">Local Events</h1>
+                <ul>
+                <% for (let i = 0; i < event.length; i++) {%>
+                <li>
+                    <a class="local-events"href="/events/<%=event[i]._id%>"><%=event[i].title%></a>
+                </li>
+                <%}%>
+                </ul>
+            </div>
+            <div class="event-container">
+                <h1 class="event-titles">My Events</h1>
+                <ul>
+                <% for (let i = 0; i < userEvents.length; i++) {%>
+                    <a class="my-events" href="/events/<%=userEvents[i]._id%>">
+                        <li><%=userEvents[i].title%></li>
+                        <br>
+                        <li><%=userEvents[i].date%></li>
+                    </a>
+                    
+                <%}%>   
+                </ul> 
+            </div>
+        </section>
     </body>
 </html>
