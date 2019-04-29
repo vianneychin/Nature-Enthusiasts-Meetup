@@ -50,7 +50,7 @@
                     <a class="my-events" href="/events/<%=userEvents[i]._id%>">
                         <li><%=userEvents[i].title%></li>
                         <br>
-                        <li><%=userEvents[i].date%></li>
+                        <li><%=userEvents[i].date.toDateString()%></li>
                     </a>
                     
                 <%}%>   
