@@ -5,13 +5,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/show.css">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
     </head>
     <body>
         <%- include('../partials/navBar.ejs')%>
         <div class="event-show-parent">
             <div class="top-bar">
                 <div class="top-bar-info">
-<div class="container-div">
                     <p><%=event.date.toDateString()%></p>
                     <h3><%=event.title%></h3>
                     <p>Organized by: <a href="/user/<%=event.owner._id%>/"><small><%=event.owner.name%></small></a></p>
@@ -39,11 +42,11 @@
             </div>
         </div>
         <div class="event-details">
-            <div class="details">
-                <h3>Details</h3>
-                <p><%=event.description%></p>
-            </div>
             <div class="participants">
+                <div class="details">
+                    <h3>Details</h3>
+                    <p><%=event.description%></p>
+                </div>
                 <%let sum = 0%>
                 <% for (let i = 0; i < event.participants.length; i++) {%>
                 <% sum += 1%>
@@ -55,14 +58,17 @@
                         <%}%>
                     </ul>  
             </div>
+
+            <div class="aside">
+                <p>Date: <%=event.date.toDateString()%></p>
+                <p>Location: <%=event.location%></p>
+                <p>How to find us: <%=event.findUs%></p>
+                <div id="map"></div>
+            </div>
         </div>
 
-        <aside>
-        <p>Date: <%=event.date%></p>
-        <p>Location: <%=event.location%></p>
-        <p>How to find us: <%=event.findUs%></p>
-        </aside>
-</div>
+        
+
     <%if (event.owner._id.toString() === sessionId) {%>
         <div class="owner-options">
             <h3>Event Owner Options</h3>
@@ -78,22 +84,23 @@
 
         </div>
 
-        <div id="map"></div>
+        
 
         <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3TNv_MLt6FZLTPzFGm0WCeE-EL2x2yGw&v=3&callback=initMap">
         </script>
         <script> 
 
-        let map;
         function initMap() {
+        var place = {lat: <%=latNum%>, lng: <%=lngNum%>}
         // Constructor creates a new map - only center and zoom are required.
-        map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: <%=latNum%>, lng:<%=lngNum%>},
+        var map = new google.maps.Map(document.getElementById('map'), {
+        center: place,
         zoom: 13 });    
+        var marker = new google.maps.Marker({position: place, map: map})
         }
-
+        
         </script>
         
     </body>
-</html>
+</html> 
