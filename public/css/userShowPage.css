@@ -1,4 +1,4 @@
-nav {
+#nav-bar-container {
     position: fixed;
     width: 100%;
     display: flex;
@@ -9,6 +9,10 @@ nav {
     line-height: 4rem;
     font-size: 1.5rem;
     font-family: 'Didact Gothic', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: white;
 }
 .nav-bar {
     margin-left: 3%;
