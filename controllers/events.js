@@ -37,8 +37,11 @@ module.exports = {
   },
 
   new: (req, res) => {
+    const currentUser = User.findById(req.session.usersDbId);
     if (req.session.logged === true) {
-      res.render("events/new.ejs");
+      res.render("events/new.ejs", {
+        user: currentUser
+      });
     } else {
       res.redirect("/auth/login");
     }
