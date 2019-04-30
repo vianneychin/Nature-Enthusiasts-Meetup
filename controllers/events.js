@@ -142,12 +142,21 @@ module.exports = {
   edit: async (req, res) => {
     if (req.session.logged === true)
       try {
-        const editEvent = await Event.findById(req.params.id);
+        const editEvent = await Event.findById(req.params.id)
+          .populate("owner")
+          .exec();
+        if (
+          editEvent.owner._id.toString() === req.session.usersDbId.toString()
+        ) {
+          res.render("events/edit.ejs", {
+            event: editEvent,
+            id: req.params.id,
+            user: req.session.usersDbId
+          });
+        } else {
+          res.redirect(`/events/${req.params.id}`);
+        }
         // console.log(editEvent);
-        res.render("events/edit.ejs", {
-          event: editEvent,
-          id: req.params.id
-        });
       } catch (err) {
         res.send(err);
       }

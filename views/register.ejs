@@ -16,6 +16,7 @@
            <hr>
             <form action="/auth/register" method="POST">
             <input type="text" name="name" placeholder="name" id="name-input" require/>
+            <p style='color: red; text-align: center'><%=session.emailMessage%></p>
             <input type="email" name="email" placeholder="email" id="email-input" require/>
             <input type="password" name="password" placeholder="password" id="password-input"require/>
             <button type="submit">sign up</button>
