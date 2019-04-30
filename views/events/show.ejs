@@ -7,101 +7,93 @@
         <link rel="stylesheet" href="/css/show.css">
     </head>
     <body>
-    <%- include('../partials/navBar.ejs')%>
-    <div class="event-show-parent">
-    <div class="top-bar">
-        <div class="top-bar-info">
-        <p><%=event.date.toDateString()%></p>
-         <h3><%=event.title%></h3>
-         <p>Organized by: <a href="/user/<%=event.owner._id%>/"><small><%=event.owner.name%></small></a></p>
-        </div>
+        <%- include('../partials/navBar.ejs')%>
+        <div class="event-show-parent">
+            <div class="top-bar">
+                <div class="top-bar-info">
+<div class="container-div">
+                    <p><%=event.date.toDateString()%></p>
+                    <h3><%=event.title%></h3>
+                    <p>Organized by: <a href="/user/<%=event.owner._id%>/"><small><%=event.owner.name%></small></a></p>
+                </div>
 
-        <div class="are-you-going">
-        <h3>Are you going?</h3>
-        <h4><%= session.joinMessage %></h4>
-            <%if (user._id.toString() === sessionId) {%>
-                <% if (!isAttending) {%>
-                    <div>
-                        <form action="/events/<%=event._id%>" method="POST">
-                        <button type="submit" class="yes-btn">Yes</button>
+                <div class="are-you-going">
+                <h3>Are you going?</h3>
+                <h4><%= session.joinMessage %></h4>
+                    <%if (user._id.toString() === sessionId) {%>
+                        <% if (!isAttending) {%>
+                            <div>
+                                <form action="/events/<%=event._id%>" method="POST">
+                                    <button type="submit" class="yes-btn">Yes</button>
+                                </form>
+                            </div>
+                        <%}%>
+                    <%}%> 
+                <% for (let i = 0; i < event.participants.length; i++) {%>
+                    <%if (event.participants[i]._id.toString() === sessionId) {%>
+                        <form action="/events/leave/<%=event._id%>" method="POST">
+                            <button type="submit" class="cancel-btn">Cancel Participation</button>
                         </form>
-                    </div>
-                <%}%>
-        <%}%> 
-        <% for (let i = 0; i < event.participants.length; i++) {%>
-            <%if (event.participants[i]._id.toString() === sessionId) {%>
-                <form action="/events/leave/<%=event._id%>" method="POST">
-                    <button type="submit" class="cancel-btn">Cancel Participation</button>
-                </form>
-            <%}%>
-        <%}%>
-        </div>
-    </div>
-
-
-
-    <div class="event-details">
-        <div class="details">
-            <h3>Details</h3>
-            <p><%=event.description%></p>
-        </div>
-        <div class="participants">
-            <%let sum = 0%>
-            <% for (let i = 0; i < event.participants.length; i++) {%>
-            <% sum += 1%>
-            <%}%>
-            <h3>Event Participants (<%=sum%>)</h3>
-                <ul>
-                    <% for (let i = 0; i < event.participants.length; i++) {%>
-                    <li><a href="/user/<%=event.participants[i]._id%>"><%=event.participants[i].name%></li></a>
                     <%}%>
-                </ul>  
-        </div>
-    </div>
-
-
-    <aside>
-    <p>Date: <%=event.date%></p>
-    <p>Location: <%=event.location%></p>
-    <p>How to find us: <%=event.findUs%></p>
-    </aside>
-
-
-    
-   
-
-
-   <%if (event.owner._id.toString() === sessionId) {%>
-    <div class="owner-options">
-        <h3>Event Owner Options</h3>
-            <form action="/events/<%=event._id%>?_method=DELETE" method="POST">
-                <button type="submit" class="delete-btn">Delete Event</button>
-            </form>
-        
-            <div class="event-edit">
-                <a href="/events/<%=event._id%>/edit"><button class="edit-event">Edit Event</button></a>
+                <%}%>
             </div>
-    </div>  
-    <%}%>
+        </div>
+        <div class="event-details">
+            <div class="details">
+                <h3>Details</h3>
+                <p><%=event.description%></p>
+            </div>
+            <div class="participants">
+                <%let sum = 0%>
+                <% for (let i = 0; i < event.participants.length; i++) {%>
+                <% sum += 1%>
+                <%}%>
+                <h3>Event Participants (<%=sum%>)</h3>
+                    <ul>
+                        <% for (let i = 0; i < event.participants.length; i++) {%>
+                        <li><a href="/user/<%=event.participants[i]._id%>"><%=event.participants[i].name%></li></a>
+                        <%}%>
+                    </ul>  
+            </div>
+        </div>
 
-    </div>
+        <aside>
+        <p>Date: <%=event.date%></p>
+        <p>Location: <%=event.location%></p>
+        <p>How to find us: <%=event.findUs%></p>
+        </aside>
+</div>
+    <%if (event.owner._id.toString() === sessionId) {%>
+        <div class="owner-options">
+            <h3>Event Owner Options</h3>
+                <form action="/events/<%=event._id%>?_method=DELETE" method="POST">
+                    <button type="submit" class="delete-btn">Delete Event</button>
+                </form>
+            
+                <div class="event-edit">
+                    <a href="/events/<%=event._id%>/edit"><button class="edit-event">Edit Event</button></a>
+                </div>
+        </div>  
+        <%}%>
 
-    <div id="map"></div>
+        </div>
 
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3TNv_MLt6FZLTPzFGm0WCeE-EL2x2yGw&v=3&callback=initMap">
-    </script>
-    <script> 
+        <div id="map"></div>
 
-    let map;
-    function initMap() {
-    // Constructor creates a new map - only center and zoom are required.
-    map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: <%=latNum%>, lng:<%=lngNum%>},
-    zoom: 13 });    
-    }
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3TNv_MLt6FZLTPzFGm0WCeE-EL2x2yGw&v=3&callback=initMap">
+        </script>
+        <script> 
 
-    </script>
-    
+        let map;
+        function initMap() {
+        // Constructor creates a new map - only center and zoom are required.
+        map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: <%=latNum%>, lng:<%=lngNum%>},
+        zoom: 13 });    
+        }
+
+        </script>
+        
     </body>
 </html>
