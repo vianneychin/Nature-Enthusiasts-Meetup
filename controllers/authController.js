@@ -1,12 +1,27 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/users");
-
+let count = 0;
+let loginCount = 0;
 module.exports = {
   login: (req, res) => {
-    res.render("login.ejs");
+    loginCount++;
+    if (loginCount > 2) {
+      loginCount = 0;
+      req.session.loginMessage = "";
+    }
+    res.render("login.ejs", {
+      session: req.session
+    });
   },
   register: (req, res) => {
-    res.render("register.ejs");
+    count++;
+    if (count > 1) {
+      count = 0;
+      req.session.emailMessage = "";
+    }
+    res.render("register.ejs", {
+      session: req.session
+    });
   },
   createLoginSession: async (req, res) => {
     try {
@@ -23,15 +38,16 @@ module.exports = {
           console.log(req.session.usersDbId, "<---- usersDbId");
           res.redirect("/events");
         } else {
-          console.log("invalid email or password");
+          req.session.loginMessage = "This this not a valid email or password";
           res.redirect("/auth/login");
         }
       } else {
-        console.log("This this not a valid email or password");
+        req.session.loginMessage = "This this not a valid email or password";
         res.redirect("/auth/login");
       }
     } catch (err) {
-      res.send(err);
+      req.session.loginMessage = "Username or password is incorrect!";
+      res.redirect("/auth/login");
     }
   },
   createRegisterSession: async (req, res) => {
@@ -46,7 +62,8 @@ module.exports = {
         res.redirect("/user");
       }
     } catch (err) {
-      res.send(err);
+      req.session.emailMessage = "Email address has already been registered!";
+      res.redirect("/auth/register");
     }
   },
   destroy: (req, res) => {
