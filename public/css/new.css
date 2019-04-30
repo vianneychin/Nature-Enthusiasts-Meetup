@@ -85,7 +85,7 @@ p {
     margin-bottom: 2%;
 }
 .submit-button {
-    display: flex;`
+    display: flex;``
     justify-content: center;
     height: 17%;
     margin-top: 8%;
@@ -100,7 +100,7 @@ button:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.39);
     color: white;
-  }`
+  }``
 h1 {
     display: flex;
     justify-content: center;
