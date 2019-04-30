@@ -38,11 +38,11 @@
             </div>
         </div>
         <div class="event-details">
-            <div class="details">
-                <h3>Details</h3>
-                <p><%=event.description%></p>
-            </div>
             <div class="participants">
+                <div class="details">
+                    <h3>Details</h3>
+                    <p><%=event.description%></p>
+                </div>
                 <%let sum = 0%>
                 <% for (let i = 0; i < event.participants.length; i++) {%>
                 <% sum += 1%>
@@ -54,14 +54,16 @@
                         <%}%>
                     </ul>  
             </div>
+
+            <div class="aside">
+                <p>Date: <%=event.date.toDateString()%></p>
+                <p>Location: <%=event.location%></p>
+                <p>How to find us: <%=event.findUs%></p>
+                <div id="map"></div>
+            </div>
         </div>
 
-        <aside class="aside">
-        <p>Date: <%=event.date.toDateString()%></p>
-        <p>Location: <%=event.location%></p>
-        <p>How to find us: <%=event.findUs%></p>
-        <div id="map"></div>
-        </aside>
+        
 
     <%if (event.owner._id.toString() === sessionId) {%>
         <div class="owner-options">
