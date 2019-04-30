@@ -10,6 +10,7 @@ const authRouter = require("./routes/auth");
 const session = require("express-session");
 require("./db/db");
 
+app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: false }));
 // Express can take in json data
 app.use(express.json());

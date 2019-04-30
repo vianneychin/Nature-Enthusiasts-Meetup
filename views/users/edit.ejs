@@ -4,9 +4,10 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="/css/userEdit.css" rel="stylesheet">
     </head>
     <body>
+      <%- include('../partials/navBar.ejs')%>
     <h1>This is the user edit age</h1>
     <section>
     <form action="/user/<%=user._id%>?_method=PUT" method="POST">
