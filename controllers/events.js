@@ -1,5 +1,8 @@
 const Event = require("../models/events");
 const User = require("../models/users");
+const googleMapsClient = require('@google/maps').createClient({
+  key: 'AIzaSyD3TNv_MLt6FZLTPzFGm0WCeE-EL2x2yGw '
+});
 
 module.exports = {
   index: async (req, res) => {
@@ -106,45 +109,53 @@ module.exports = {
       // console.log(foundEvent, "<---- foundEvent after user is put in");
     } catch (err) {
       res.send(err);
-    }
-  },
-  show: async (req, res) => {
-    if (req.session.logged === true)
-      try {
-        const currentUser = await User.findById(req.session.usersDbId);
-        const foundEvent = await Event.findById(req.params.id)
-          // populating the the owner object ID so that the owner name displays on show page
-          .populate("owner")
-          .populate("participants")
-          .exec();
-        let isAttending = false;
-        for (let i = 0; i < foundEvent.participants.length; i++) {
-          // console.log(allEvents[i].participants, currentUser);
-          if (
-            foundEvent.participants[i]._id.toString() ===
-            currentUser._id.toString()
-          ) {
-            isAttending = true;
-            req.session.joinMessage = "You are confirmed for this event!";
+    }},
+    show: async (req, res) => {
+      if (req.session.logged === true)
+        try {
+          const currentUser = await User.findById(req.session.usersDbId);
+          const foundEvent = await Event.findById(req.params.id)
+            // populating the the owner object ID so that the owner name displays on show page
+            .populate("owner")
+            .populate("participants")
+            .exec();
+            
+          let isAttending = false;
+          for (let i = 0; i < foundEvent.participants.length; i++) {
+            // console.log(allEvents[i].participants, currentUser);
+            if (
+              foundEvent.participants[i]._id.toString() ===
+              currentUser._id.toString()
+            ) {
+              isAttending = true;
+              req.session.joinMessage = "You are confirmed for this event!";
+            }
           }
-        }
-        res.render("events/show.ejs", {
-          user: currentUser,
-          event: foundEvent,
-          sessionId: req.session.usersDbId,
-          isAttending,
-          session: req.session
-        });
-      } catch (err) {
-        res.send(err);
-      }
-    else {
-      res.redirect("/auth/login");
-    }
-  },
-  edit: async (req, res) => {
-    if (req.session.logged === true)
-      try {
+          googleMapsClient.geocode({
+            address: foundEvent.location
+          }, function(err, response) {
+            if (!err) {
+              foundEvent.coords = response.json.results[0].geometry.location;
+            console.log(foundEvent.coords)
+          // foundEvent.coords = {lat: 34.0522, lng: -118.2437};
+            res.render("events/show.ejs", {
+            user: currentUser,
+            event: foundEvent,
+            latNum: foundEvent.coords.lat,
+            lngNum: foundEvent.coords.lng,
+            sessionId: req.session.usersDbId,
+            isAttending,
+            session: req.session,
+          })}})}
+          catch (err) {
+          res.send(err);
+          }
+          else {
+        res.redirect("/auth/login");
+      }},
+      edit: async (req, res) => {
+      if (req.session.logged === true)
+        try {
         const editEvent = await Event.findById(req.params.id)
           .populate("owner")
           .exec();
@@ -166,8 +177,8 @@ module.exports = {
     else {
       res.redirect("/auth/login");
     }
-  },
-  update: async (req, res) => {
+    },
+    update: async (req, res) => {
     try {
       const updateEvent = await Event.findByIdAndUpdate(
         req.params.id,
@@ -187,5 +198,4 @@ module.exports = {
     } catch (err) {
       res.send(err);
     }
-  }
-};
+}}
