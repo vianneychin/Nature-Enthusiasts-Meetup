@@ -47,9 +47,24 @@ input {
   height: 4%;
   width: 30%;
   position: absolute;
-  top: 229%;
+  top: 240%;
   text-align: center;
   font-family: "Playfair Display SC", serif;
+}
+.event-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  background: rgb(25, 42, 62);
+  padding: 2%;
+}
+.event-p {
+  margin-top: 2%;
+  font-family: "Playfair Display SC", serif;
+  font-size: 20px;
+  letter-spacing: 2px;
 }
 .events-bulletin {
   text-align: center;
@@ -103,7 +118,7 @@ input {
   margin: 3%;
 }
 .background {
-  margin-top: 6%;
+  /* margin-top: 6%; */
   height: 100vh;
   background-image: url(../img/concrete.jpeg);
   background-size: cover;

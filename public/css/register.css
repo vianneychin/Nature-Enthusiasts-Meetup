@@ -53,6 +53,7 @@ body {
   padding-top: 29%;
   letter-spacing: 3px;
   font-family: "Didact Gothic", sans-serif;
+  text-align: center;
 }
 input {
   padding: 2%;
@@ -91,6 +92,14 @@ h1 {
   top: 9%;
   font-size: 37px;
   left: 13%;
+  letter-spacing: 12px;
+}
+.text-box-h1 {
+  font-family: "Julius Sans One", sans-serif;
+  position: absolute;
+  top: 9%;
+  font-size: 37px;
+  left: 22%;
   letter-spacing: 12px;
 }
 hr {
