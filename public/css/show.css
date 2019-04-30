@@ -31,7 +31,12 @@ a {
   transform: scale(1.3);
 }
 
+.event-show-parent {
+  display: flex;
+}
+
 #map {
   margin: 50px;
-  height: 10rem;
+  height: 20rem;
+  width: 25rem;
 }
