@@ -59,7 +59,7 @@ module.exports = {
         req.session.usersDbId = createdUser._id;
         console.log(req.session, "<---- req.session ");
         console.log(req.session.usersDbId, "<---- req.session.usersDbId");
-        res.redirect("/user");
+        res.redirect("/events");
       }
     } catch (err) {
       req.session.emailMessage = "Email address has already been registered!";
