@@ -67,3 +67,20 @@ button:hover {
   color: white;
   opacity: 1;
 }
+.havent-registered {
+  position: absolute;
+  top: 60%;
+  left: 20%;
+  color: white;
+}
+a {
+  text-decoration: none;
+  color: rgb(252, 252, 252);
+  font-size: 1.2em;
+  background-color: rgba(255, 255, 255, 0.24);
+  padding: 2%;
+  border-radius: 10px;
+}
+p {
+  margin-bottom: 3%;
+}
