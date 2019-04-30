@@ -11,6 +11,7 @@ const session = require("express-session");
 const flash = require("express-flash");
 require("./db/db");
 
+app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: false }));
 // Express can take in json data
 app.use(express.json());

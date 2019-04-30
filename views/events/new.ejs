@@ -4,9 +4,10 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="/css/new.css" rel="stylesheet">
     </head>
     <body>
+    <%- include('../partials/navBar.ejs')%>
     <h1>This is the page to create a new event</h1>
    <form action="/events" method="POST">
         Enter Your Event Title: <input type="text" name="title"/><br/>

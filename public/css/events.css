@@ -3,8 +3,53 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    height: 250vh;
+a {
+    text-decoration: none;
+    color: white;
+}
+footer {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    height: 25vh;
+}
+.social-media {
+    height: 30%;
+    width: 30%;
+    TEXT-ALIGN: CENTER;
+    font-family: 'Playfair Display SC', serif;
+}
+.social-media-icons {
+    margin-top: 4%;
+}
+.subscribe {
+    width: 30%;
+    height: 56%;
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
+}
+button {
+    width: 21%;
+    height: 34%;
+    font-size: 100%;
+    color: white;
+    background-color: black;
+    font-family: 'Playfair Display SC', serif;
+}
+input {
+    height: 34%;
+    width: 60%;
+    padding: 3%;
+    font-size: 100%;
+    margin-top: 4%;
+}
+.trademark {
+    height: 4%;
+    width: 30%;
+    position: absolute;
+    TOP: 229%;
+    text-align: center;
+    font-family: 'Playfair Display SC', serif;
 }
 .events-bulletin {
     text-align: center;
@@ -60,8 +105,8 @@ body {
     margin: 3%;
 }
 .background {
-    margin: 3%;
-    height: 105vh;
+    margin-top: 6%;
+    height: 100vh;
     background-image: url(../img/concrete.jpeg);
     background-size: cover;
     background-position: center;
@@ -75,6 +120,8 @@ ul {
     height: 104%;
 } */
 nav {
+    position: fixed;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     background-color: rgba(0, 0, 0, 0.4);
