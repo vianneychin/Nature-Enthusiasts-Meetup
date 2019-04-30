@@ -30,11 +30,36 @@ a {
   -ms-transform: scale(1.3);
   transform: scale(1.3);
 }
-.top-bar-info {
-  margin-top: 20%;
-}
+
 .event-show-parent {
   display: flex;
+  padding-top: 4rem;
+}
+
+.top-bar {
+  background-color: pink;
+  flex-direction: column;
+}
+
+.top-bar-info {
+}
+
+.are-you-going {
+  align-items: flex-end;
+  background-color: purple;
+}
+
+.event-details {
+  background-color: cyan;
+}
+
+.aside {
+  background-color: gold;
+  justify-content: center;
+}
+
+.owner-options {
+  background-color: green;
 }
 
 #map {

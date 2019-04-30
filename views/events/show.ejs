@@ -11,7 +11,6 @@
         <div class="event-show-parent">
             <div class="top-bar">
                 <div class="top-bar-info">
-<div class="container-div">
                     <p><%=event.date.toDateString()%></p>
                     <h3><%=event.title%></h3>
                     <p>Organized by: <a href="/user/<%=event.owner._id%>/"><small><%=event.owner.name%></small></a></p>
@@ -57,12 +56,13 @@
             </div>
         </div>
 
-        <aside>
-        <p>Date: <%=event.date%></p>
+        <aside class="aside">
+        <p>Date: <%=event.date.toDateString()%></p>
         <p>Location: <%=event.location%></p>
         <p>How to find us: <%=event.findUs%></p>
+        <div id="map"></div>
         </aside>
-</div>
+
     <%if (event.owner._id.toString() === sessionId) {%>
         <div class="owner-options">
             <h3>Event Owner Options</h3>
@@ -78,7 +78,7 @@
 
         </div>
 
-        <div id="map"></div>
+        
 
         <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3TNv_MLt6FZLTPzFGm0WCeE-EL2x2yGw&v=3&callback=initMap">
