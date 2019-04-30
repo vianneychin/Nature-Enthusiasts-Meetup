@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="/css/events.css">
     </head>
     <body>
+
         <div id="first-background-picture">
             <%- include('../partials/navBar.ejs')%>
             <h1 class="events-title">This is Californature</h1>
@@ -42,13 +43,14 @@
                     <a class="my-events" href="/events/<%=userEvents[i]._id%>">
                         <li><%=userEvents[i].title%></li>
                         <br>
-                        <li><%=userEvents[i].date%></li>
+                        <li><%=userEvents[i].date.toDateString()%></li>
                     </a>
                     
                 <%}%>   
                 </ul> 
             </div>
         </section>
+<<<<<<< HEAD
         <footer>
             <div class="social-media">
                 <p>Follow us on..</p>
@@ -68,5 +70,9 @@
                 <button type="submit">subscribe</button>
             </div>
         </footer>
+=======
+
+    
+>>>>>>> master
     </body>
 </html>

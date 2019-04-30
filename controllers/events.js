@@ -52,14 +52,22 @@ module.exports = {
       req.body.owner = currentUser;
       // Creating the new event
       const newEvent = await Event.create(req.body);
-      console.log(newEvent);
+      console.log(
+        newEvent,
+        "<--- newEvent BEFORE pushing owner into participants array"
+      );
+      newEvent.participants.push(currentUser);
+      newEvent.save();
+      console.log(
+        newEvent,
+        "<--- newEvent AFTER pushing owner into participants array"
+      );
       res.redirect("/events");
     } catch (err) {
       res.render(err);
     }
   },
   joinEvent: async (req, res) => {
-    console.log("yes button is clicked <--- event controller console log");
     try {
       const currentUser = await User.findById(req.session.usersDbId);
       // console.log(currentUser, "<---- currentUser");
@@ -67,7 +75,8 @@ module.exports = {
       // console.log(foundEvent, "<---- foundEvent");
       foundEvent.participants.push(currentUser);
       foundEvent.save();
-      res.redirect("/events");
+      req.session.joinMessage = "You are confirmed for this event!";
+      res.redirect(`/events/${req.params.id}`);
       // console.log(foundEvent, "<---- foundEvent after user is put in");
     } catch (err) {
       res.send(err);
@@ -89,7 +98,8 @@ module.exports = {
       const removeUser = await foundEvent.participants.indexOf(currentUser);
       foundEvent.participants.splice(removeUser, 1);
       foundEvent.save();
-      res.redirect("/events");
+      req.session.joinMessage = "";
+      res.redirect(`/events/${req.params.id}`);
       // console.log(foundEvent, "<---- foundEvent after user is put in");
     } catch (err) {
       res.send(err);
@@ -104,13 +114,23 @@ module.exports = {
           .populate("owner")
           .populate("participants")
           .exec();
-
-        // console.log(foundEvent, "<---- foundEvent");
-        // console.log(currentUser, "<---- currentUser");
+        let isAttending = false;
+        for (let i = 0; i < foundEvent.participants.length; i++) {
+          // console.log(allEvents[i].participants, currentUser);
+          if (
+            foundEvent.participants[i]._id.toString() ===
+            currentUser._id.toString()
+          ) {
+            isAttending = true;
+            req.session.joinMessage = "You are confirmed for this event!";
+          }
+        }
         res.render("events/show.ejs", {
           user: currentUser,
           event: foundEvent,
-          sessionId: req.session.usersDbId
+          sessionId: req.session.usersDbId,
+          isAttending,
+          session: req.session
         });
       } catch (err) {
         res.send(err);
