@@ -6,20 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/userShowPage.css">
     </head>
-    <body>
-      <%- include('../partials/navBar.ejs')%>
-    <h1>This is the user show page</h1>
-    <div>
-    <h3>User's Information</h3>
-    <ul>
-        <li>Name: <%=user.name%></li>
-        <li>Email: <%=user.email%></li>
-    </ul>
-    </div>
-    <%if (user._id.toString() === sessionId) {%>
+    <div class="background"></div>
+        <body>
+        <%- include('../partials/navBar.ejs')%>
+        <h1>This is the user show page</h1>
         <div>
-         <a href="/user/<%=user._id%>/edit">Edit Account</a>
+        <h3>User's Information</h3>
+        <ul>
+            <li>Name: <%=user.name%></li>
+            <li>Email: <%=user.email%></li>
+        </ul>
         </div>
-   <% } %>    
+        <%if (user._id.toString() === sessionId) {%>
+            <div>
+            <a href="/user/<%=user._id%>/edit">Edit Account</a>
+            </div>
+        <% } %>    
     </body>
 </html>

@@ -1,3 +1,12 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
 nav {
     position: fixed;
     width: 100%;
@@ -17,7 +26,14 @@ nav {
     height: 69%;
 }
 .grow:hover{
-        -webkit-transform: scale(1.3);
-        -ms-transform: scale(1.3);
-        transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+}
+.background {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../img/palm-trees.jpeg');
+    background-position: center;
+    background-size: cover;
 }

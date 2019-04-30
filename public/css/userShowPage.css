@@ -1,4 +1,4 @@
-nav {
+#nav-bar-container {
     position: fixed;
     width: 100%;
     display: flex;
