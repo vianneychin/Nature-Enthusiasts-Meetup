@@ -2,15 +2,17 @@ const User = require("../models/users");
 
 module.exports = {
   index: async (req, res) => {
-    try {
-      const foundUser = await User.find({});
-      res.render("users/index.ejs", {
-        user: foundUser
-      });
-    } catch (err) {
-      console.log(err);
-      res.render(err);
-    }
+    if ((req.session.usersDbId.name = "admin"))
+      try {
+        const foundUser = await User.find({});
+
+        res.render("users/index.ejs", {
+          user: foundUser
+        });
+      } catch (err) {
+        console.log(err);
+        res.render(err);
+      }
   },
   edit: async (req, res) => {
     try {

@@ -12,12 +12,13 @@
         <div class="login-container">
             <h1>Login</h1>
             <hr>
+            <p style="color: red; text-align: center"><%=session.loginMessage%></p>
             <form action="/auth/login" method="POST">
             <div class="username-container">
-                <input type="email" name="email" placeholder="email">
+                <input type="email" name="email" placeholder="email" require>
             </div>
             <div class="password-container">
-                <input type="password" name="password" placeholder="password">
+                <input type="password" name="password" placeholder="password" require>
             </div>
             <button type="submit">&#8594</button>
             </form> 
