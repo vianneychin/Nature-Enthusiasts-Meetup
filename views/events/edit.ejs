@@ -2,11 +2,11 @@
 <html lang="en">
     <head>
         <title></title>
-        <link href="css/style.css" rel="stylesheet">
+        <link href="/css/eventEdit.css" rel="stylesheet">
     </head>
     <body>
     <h1>This is the event edit page</h1>
-  
+  <%- include('../partials/navBar.ejs')%>
     <form action="/events/<%=event._id%>?_method=PUT" method="POST">
         <input type="text" name="title" value="<%=event.title%>"/><br/>
         <input type="text" name="location" value="<%=event.location%>"/><br/>
