@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+body {
+  height: 135vh;
+}
 a {
   text-decoration: none;
   color: white;
@@ -84,4 +87,45 @@ form {
 .terminate-button:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.274);
+}
+footer {
+  display: flex;
+  justify-content: center;
+  height: 25vh;
+}
+.social-media {
+  height: 30%;
+  width: 30%;
+  text-align: CENTER;
+  font-family: "Playfair Display SC", serif;
+}
+.social-media-icons {
+  margin-top: 4%;
+}
+.subscribe {
+  width: 30%;
+  height: 56%;
+  text-align: center;
+  font-family: "Playfair Display SC", serif;
+}
+.trademark {
+  height: 4%;
+  width: 30%;
+  position: absolute;
+  top: 124%;
+  text-align: center;
+  font-size: 2em;
+  font-family: "Playfair Display SC", serif;
+}
+.subscribe-button {
+  position: absolute;
+  top: 110%;
+  left: 80%;
+  width: 10%;
+  font-size: 100%;
+  height: 5.5%;
+}
+.subscribe-text {
+  width: 120%;
+  margin-bottom: 3%;
 }
