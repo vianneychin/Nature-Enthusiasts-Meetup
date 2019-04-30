@@ -1,103 +1,112 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 body {
-    color: white;
+  color: white;
 }
 .background {
-    height: 100vh;
-    background-image: url(../img/park.jpeg);
-    background-size: cover;
-    background-position: center;
-    filter: blur(4px);
+  height: 100vh;
+  background-image: url(../img/park.jpeg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px);
 }
 #name-input {
-    position: absolute;
-    top: 31%;
-    left: 1%;
+  position: absolute;
+  top: 31%;
+  left: 1%;
 }
 #email-input {
-    position: absolute;
-    top: 45%;
-    left: 1%;
+  position: absolute;
+  top: 45%;
+  left: 1%;
 }
 #password-input {
-    position: absolute;
-    top: 59%;
-    left: 1%;
+  position: absolute;
+  top: 59%;
+  left: 1%;
 }
 #register-container {
-    position: absolute;
-    top: 19%;
-    left: 14%;
-    float: left;
-    width: 36%;
-    height: 51%;
-    background-color: rgba(0, 0, 0, 0.185);
-    border-radius: 4%;
+  position: absolute;
+  top: 19%;
+  left: 14%;
+  float: left;
+  width: 36%;
+  height: 51%;
+  background-color: rgba(0, 0, 0, 0.185);
+  border-radius: 4%;
 }
 #text-box {
-    display: block;
-    position: absolute;
-    top: 0%;
-    left: 108%;
-    font-size: 20px;
-    background-color: rgba(0, 0, 0, 0.185);
-    border-radius: 4%;
-    height: 100%;
-    width: 100%;
-    padding: 10%;
-    padding-top: 29%;
-    letter-spacing: 3px;
-    font-family: 'Didact Gothic', sans-serif;
+  display: block;
+  position: absolute;
+  top: 0%;
+  left: 108%;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.185);
+  border-radius: 4%;
+  height: 100%;
+  width: 100%;
+  padding: 10%;
+  padding-top: 29%;
+  letter-spacing: 3px;
+  font-family: "Didact Gothic", sans-serif;
+  text-align: center;
 }
 input {
-    padding: 2%;
-    width: 93%;
-    font-size: 100%;
-    margin: 3%;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.11);
-    color: white;
+  padding: 2%;
+  width: 93%;
+  font-size: 100%;
+  margin: 3%;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.11);
+  color: white;
 }
-::placeholder { 
-    color: white;
-    opacity: 1;
+::placeholder {
+  color: white;
+  opacity: 1;
 }
 button {
-    padding: 4%;
-    width: 31%;
-    position: absolute;
-    left: 63%;
-    top: 80%;
-    background-color: rgba(255, 255, 255, 0.11);
-    color: white;
-    border-radius: 8px;
-    font-size: 100%;
-    border: 2px solid white;
-    border-top: 1px solid white;
+  padding: 4%;
+  width: 31%;
+  position: absolute;
+  left: 63%;
+  top: 80%;
+  background-color: rgba(255, 255, 255, 0.11);
+  color: white;
+  border-radius: 8px;
+  font-size: 100%;
+  border: 2px solid white;
+  border-top: 1px solid white;
 }
 button:hover {
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.39);
-    color: white;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.39);
+  color: white;
 }
 h1 {
-    font-family: 'Julius Sans One', sans-serif;
-    position: absolute;
-    top: 9%;
-    font-size: 37px;
-    left: 7%;
-    letter-spacing: 12px;
+  font-family: "Julius Sans One", sans-serif;
+  position: absolute;
+  top: 9%;
+  font-size: 37px;
+  left: 13%;
+  letter-spacing: 12px;
+}
+.text-box-h1 {
+  font-family: "Julius Sans One", sans-serif;
+  position: absolute;
+  top: 9%;
+  font-size: 37px;
+  left: 22%;
+  letter-spacing: 12px;
 }
 hr {
-    position: absolute;
-    top: 23%;
-    left: 41%;
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 45%;
-    width: 16%;
+  position: absolute;
+  top: 23%;
+  left: 41%;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 45%;
+  width: 16%;
 }
