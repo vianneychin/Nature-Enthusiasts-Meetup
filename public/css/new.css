@@ -26,3 +26,85 @@ nav {
         -ms-transform: scale(1.3);
         transform: scale(1.3);
 }
+.hosting-event-container {
+    display: inline-block;
+    margin-top: 5%;
+    position: absolute;
+    top: 40%;
+    left: 53%;
+    transform: translate(-55%, -60%);
+    height: 78%;
+    width: 72%;
+}
+.background {
+    height: 100vh;
+    background-image: url(../img/beachy.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+form {
+    height: 76%;
+}
+button,
+input:focus {
+  outline: 0;
+}
+input {
+    font-size: 100%;
+    width: 45%;
+    height: 95%;
+    margin-right: 8%;
+    border-radius: 10px;
+    background-color: rgba(71, 71, 71, 0.3);
+    color: white;
+    padding-left:1%;
+    font-size: 2em;
+    text-align: center;
+}
+::placeholder {
+    color: white;
+    opacity: 1;
+  }
+p {
+    display: inline-block;
+    padding-left: 7%;
+    padding-top: 2%;
+    font-size: 1.5em;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.containers-for-questions {
+    display: flex;
+    justify-content: space-between;
+    height: 12%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+.submit-button {
+    display: flex;`
+    justify-content: center;
+    height: 17%;
+    margin-top: 8%;
+}
+button {
+    font-size: 100%;
+    padding: 2%;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.582);
+}
+button:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.39);
+    color: white;
+  }`
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 7%;
+    margin-top: 7%;
+    font-size: 3em;
+}

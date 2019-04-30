@@ -7,14 +7,39 @@
         <link href="/css/new.css" rel="stylesheet">
     </head>
     <body>
-    <%- include('../partials/navBar.ejs')%>
-    <h1>This is the page to create a new event</h1>
-   <form action="/events" method="POST">
-        Enter Your Event Title: <input type="text" name="title"/><br/>
-        Enter the location: <input type="text" name="location" placeholder="Please include city and state"/><br/>
-        What is the date?: <input type="date" name="date"/><br/>
-        Meeting Point: <input type="text" name="findUs"/> <br/>
-        <button type="submit">Create Your Event</button>
+        <div class="background"></div>
+        <%- include('../partials/navBar.ejs')%>
+
+        <main class="hosting-event-container">
+            <h1>Host an Event:</h1>
+            <form action="/events" method="POST">
+
+                <div class="containers-for-questions">
+                    <p>What is your event called?</p>
+                    <input type="text" name="title"/>
+                </div>
+
+                <div class="containers-for-questions">
+                    <p>Where is the location of the event?</p>
+                    <input type="text" name="location" placeholder="Please include city and state"/>
+                </div>
+
+                <div class="containers-for-questions">
+                    <p>When is the event?</p>
+                    <input type="date" name="date"/>
+                </div>
+
+                <div class="containers-for-questions">
+                    <p>Where should we meet?</p>
+                    <input type="text" name="findUs"/>
+                </div>
+
+                <div class="submit-button">
+                    <button type="submit">
+                    Create Your Event
+                    </button>
+                </div>
+        </main>
 
     </body>
 </html>
