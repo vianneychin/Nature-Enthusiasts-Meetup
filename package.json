@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/chaselancaster/crud-project#readme",
   "dependencies": {
+    "@google/maps": "^0.5.5",
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
