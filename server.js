@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT;
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const logger = require("morgan");
@@ -8,6 +8,7 @@ const userRouter = require("./routes/users");
 const eventRouter = require("./routes/events");
 const authRouter = require("./routes/auth");
 const session = require("express-session");
+require("dotenv").config();
 require("./db/db");
 
 app.set("view engine", "ejs");
@@ -35,6 +36,6 @@ app.get("/", (req, res) => {
   res.render("home/home.ejs");
 });
 
-app.listen(port, err => {
-  console.log(err || "App is listening on port", port);
+app.listen(PORT, err => {
+  console.log(err || "App is listening on port", PORT);
 });
