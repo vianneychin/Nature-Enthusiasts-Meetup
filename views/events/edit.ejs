@@ -5,6 +5,12 @@
         <link href="/css/eventEdit.css" rel="stylesheet">
     </head>
     <body>
+
+        <%- include('../partials/navBar.ejs')%>
+        <div class="background"></div>
+        <main class="edit-page-container">
+            <h1>Edit Details for your Event</h1>
+
     <h1>This is the event edit page</h1>
   <%- include('../partials/navBar.ejs')%>
     <form action="/events/<%=event._id%>?_method=PUT" method="POST">
@@ -19,5 +25,26 @@
         <button type="submit">Delete Event</button>
         </form>
 
+            <form action="/events/<%=event._id%>?_method=PUT" method="POST">
+                <div class="edit-containers">
+                    <p>Edit Title:</p>
+                    <input type="text" name="title" value="<%=event.title%>"/>
+                </div>
+                <div class="edit-containers">
+                    <p>Edit Location:</p>
+                    <input type="text" name="location" value="<%=event.location%>"/>
+                </div>
+                <div class="edit-containers">
+                    <p>Edit Date:</p>
+                    <input type="date" name="date" value="<%=event.date%>"/>
+                </div>
+                <div class="buttons">
+                    <button class="submit-button" type="submit">Submit Changes</button>
+                    </form>
+                    <form action="/events/<%=event._id%>?_method=DELETE" method="POST"> 
+                    <button class="delete-event-button" type="submit">Delete Event</button>
+                </div>
+            </form>
+        </main>
     </body>
 </html>
