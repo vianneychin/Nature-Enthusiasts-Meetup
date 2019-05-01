@@ -216,7 +216,7 @@ hr {
 }
 
 .create-event:hover {
-  background-color: white
+  background-color: white;
   color: white;
   cursor: pointer;
 }
