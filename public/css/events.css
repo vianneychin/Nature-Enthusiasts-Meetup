@@ -233,6 +233,7 @@ hr {
   -webkit-transform: scale(1.3);
   -ms-transform: scale(1.3);
   transform: scale(1.3);
+<<<<<<< HEAD
 }
 .a-button {
   background-color: grey;
@@ -242,4 +243,6 @@ hr {
 .a-button:hover {
   background-color: black;
   color: white;
+=======
+>>>>>>> master
 }
