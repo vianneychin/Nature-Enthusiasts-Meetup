@@ -29,4 +29,3 @@ cancelBtn.addEventListener("click", () => {
 cancelBtn.addEventListener("click", () => {
   cancelBtn.style.display = "none";
   yesBtn.style.display = "";
-});
