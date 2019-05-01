@@ -37,7 +37,7 @@ ul {
 
 .event-show-parent {
   display: flex;
-  padding-top: 5rem;
+  padding-top: 78px;
   flex-direction: column;
 }
 
@@ -159,6 +159,22 @@ ul {
   color: white;
   font-family: "Didact Gothic", sans-serif;
   font-size: 20px;
+}
+
+.owner-btn {
+  background: none;
+  color: white;
+  font-size: 15px;
+  padding: 10px 50px 10px 50px;
+}
+
+.delete-btn {
+  margin-top: 15px;
+}
+
+.edit-btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #map {

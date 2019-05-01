@@ -205,6 +205,14 @@ hr {
   -webkit-animation: bounce 2s infinite;
   animation: bounce 2s infinite;
 }
+
+.create-event {
+  background: none;
+  color: white;
+  font-size: 15px;
+  padding: 10px 50px 10px 50px;
+}
+
 @keyframes bounce {
   0%,
   20%,
