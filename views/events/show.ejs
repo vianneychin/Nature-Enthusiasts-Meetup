@@ -73,11 +73,11 @@
         <div class="owner-options">
             <h3>Event Owner Options</h3>
                 <form action="/events/<%=event._id%>?_method=DELETE" method="POST">
-                    <button type="submit" class="delete-btn">Delete Event</button>
+                    <button type="submit" class="delete-btn owner-btn">Delete Event</button>
                 </form>
             
                 <div class="event-edit">
-                    <a href="/events/<%=event._id%>/edit"><button class="edit-event">Edit Event</button></a>
+                    <a href="/events/<%=event._id%>/edit"><button class="edit-btn owner-btn">Edit Event</button></a>
                 </div>
         </div>  
         <%}%>
