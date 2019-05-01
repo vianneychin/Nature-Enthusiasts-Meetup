@@ -46,8 +46,8 @@ input {
 .trademark {
   height: 4%;
   width: 30%;
-  position: absolute;
-  top: 232%;
+  position: relative;
+  bottom: 0;
   text-align: center;
   font-family: "Playfair Display SC", serif;
 }
