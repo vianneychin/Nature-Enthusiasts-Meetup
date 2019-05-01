@@ -15,14 +15,14 @@
         <div class="event-show-parent">
             <div class="top-bar">
                 <div class="top-bar-info">
-                    <p><%=event.date.toDateString()%></p>
-                    <h3><%=event.title%></h3>
-                    <p>Organized by: <a href="/user/<%=event.owner._id%>/"><small><%=event.owner.name%></small></a></p>
+                    <p class="top-event-date"><%=event.date.toDateString()%></p>
+                    <h3 class="top-event-title"><%=event.title%></h3>
+                    <p class="organizer-text">Organized by: <a href="/user/<%=event.owner._id%>/"><small><%=event.owner.name%></small></a></p>
                 </div>
 
                 <div class="are-you-going">
                 <h3>Are you going?</h3>
-                <h4><%= session.joinMessage %></h4>
+                <h4 class="join-message"><%= session.joinMessage %></h4>
                     <%if (user._id.toString() === sessionId) {%>
                         <% if (!isAttending) {%>
                             <div>
@@ -35,7 +35,7 @@
                 <% for (let i = 0; i < event.participants.length; i++) {%>
                     <%if (event.participants[i]._id.toString() === sessionId) {%>
                         <form action="/events/leave/<%=event._id%>" method="POST">
-                            <button type="submit" class="cancel-btn">Cancel Participation</button>
+                            <button type="submit" class="cancel-btn">Cancel</button>
                         </form>
                     <%}%>
                 <%}%>
@@ -60,9 +60,9 @@
             </div>
 
             <div class="aside">
-                <p>Date: <%=event.date.toDateString()%></p>
-                <p>Location: <%=event.location%></p>
-                <p>How to find us: <%=event.findUs%></p>
+                <p class="aside-date aside-text">Date: <%=event.date.toDateString()%></p>
+                <p class="aside-location aside-text">Location: <%=event.location%></p>
+                <p class="aside-find aside-text">How to find us: <%=event.findUs%></p>
                 <div id="map"></div>
             </div>
         </div>

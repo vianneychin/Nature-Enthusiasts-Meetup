@@ -42,40 +42,63 @@ ul {
 }
 
 .top-bar {
-  background-color: pink;
+  background-color: rgb(24, 37, 52);
   height: 200px;
   display: flex;
   justify-content: space-around;
 }
 
 .top-bar-info {
-  border: 3px solid red;
+  /* border: 3px solid red; */
   text-align: center;
+  color: white;
 }
 
 .are-you-going {
-  border: 3px solid black;
+  padding-left: 750px;
+  /* border: 3px solid black; */
   text-align: center;
+  color: white;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 20px;
+  padding-top: 3px;
+}
+
+.join-message {
+  margin-top: 50px;
+}
+
+.yes-btn {
+  margin-top: 70px;
+  background: none;
+  color: white;
+  font-size: 15px;
+  padding: 10px 50px 10px 50px;
+}
+
+.cancel-btn {
+  margin-top: 45px;
+  background: none;
+  color: white;
+  font-size: 15px;
+  padding: 10px 50px 10px 50px;
 }
 
 .event-details {
-  background-color: cyan;
+  background-color: white;
   text-align: center;
 }
 
 .aside {
-  background-color: gold;
+  background-color: rgb(24, 37, 52);
   text-align: center;
+  color: white;
 }
 
-.owner-options {
-  background-color: green;
-}
-
-#map {
-  margin: 50px;
-  height: 20rem;
-  width: 25rem;
+.aside-text {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 20px;
+  padding-top: 15px;
 }
 
 .event-details {
@@ -87,9 +110,32 @@ ul {
   border: 3px solid black;
 }
 
+.top-event-date {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.organizer-text {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 20px;
+}
+
+.top-event-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 80px;
+}
+
 .owner-options {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  background-color: green;
+}
+
+#map {
+  margin: 50px;
+  height: 20rem;
+  width: 25rem;
 }
