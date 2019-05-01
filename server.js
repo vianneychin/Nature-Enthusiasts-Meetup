@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT;
@@ -8,7 +9,7 @@ const userRouter = require("./routes/users");
 const eventRouter = require("./routes/events");
 const authRouter = require("./routes/auth");
 const session = require("express-session");
-require("dotenv").config();
+
 require("./db/db");
 
 app.set("view engine", "ejs");
