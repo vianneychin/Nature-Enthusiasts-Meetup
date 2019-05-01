@@ -104,10 +104,13 @@ ul {
 .event-details {
   display: flex;
   justify-content: space-around;
+  background-color: rgb(153, 153, 153);
 }
 
 .participants {
   border: 3px solid black;
+  font-size: 25px;
+  color: black;
 }
 
 .top-event-date {
@@ -132,6 +135,30 @@ ul {
   flex-direction: column;
   align-items: center;
   background-color: green;
+}
+
+.details-title {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 50px;
+}
+
+.details-p {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}
+
+.event-participants {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 40px;
+  color: black;
+  margin-top: 20px;
+}
+
+.owner-options {
+  background-color: rgb(24, 37, 52);
+  color: white;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 20px;
 }
 
 #map {
