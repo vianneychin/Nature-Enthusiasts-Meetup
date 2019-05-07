@@ -1,1 +1,1 @@
-<h1>Californature</h1>
+<h1>Getting Started...</h1>
