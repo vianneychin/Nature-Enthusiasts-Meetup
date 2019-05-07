@@ -32,4 +32,5 @@
 <ul>
   <li>Design Responsive</li>
   <li>More content to your profile and other people's profile.</li>
+  <li>Update more of the styling.</li>
 </ul>  
