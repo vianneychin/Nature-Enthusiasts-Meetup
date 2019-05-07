@@ -3,6 +3,8 @@
 <br>
 <h2>Technologies Used:</h2>
 <ul>
+  <li>Git</li>
+  <li>GitHub</li>
   <li>Node.JS</li>
   <li><% EJS %> (Embedded JavaScript templating)</li>
   <li>CSS3</li>
