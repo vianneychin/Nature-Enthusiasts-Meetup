@@ -1,6 +1,11 @@
 <h1>Getting Started:</h1>
-<h4><a href="http://californature.herokuapp.com/">Check it out!</a></h4>
+<h4>Check out our Nature Enthusiasts Meetup website called <a href="http://californature.herokuapp.com/">Californature</a>.</h4>
 <br>
+
+<p>
+  
+</p>
+
 <h2>Technologies Used:</h2>
 <ul>
   <li>Git</li>
