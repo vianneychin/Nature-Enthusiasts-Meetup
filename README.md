@@ -1,6 +1,6 @@
 <h1>Getting Started:</h1>
-<h4>Check out our Nature Enthusiasts Meetup website called <a href="http://californature.herokuapp.com/">Californature</a>. Californature was created by three Software Engineer Students at General Assembly Bootcamp, Peter Nguyen, Chase Lancaster, and Vianney Chin. The theme of this CRUD application is to bring Nature Enthusiasts alike and socialize. You as a user will be able to create an event, see the events bulletin, or participate in any of the events catered to your interest.
-</h4>
+<p>Check out our Nature Enthusiasts Meetup website called <a href="http://californature.herokuapp.com/">Californature</a>. Californature was created by three Software Engineer Students at General Assembly Bootcamp, Peter Nguyen, Chase Lancaster, and Vianney Chin. The theme of this CRUD application is to bring Nature Enthusiasts alike and socialize. You as a user will be able to create an event, see the events bulletin, or participate in any of the events catered to your interest.
+</p>
 <br>
 
 <h2>Technologies Used:</h2>
