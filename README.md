@@ -17,5 +17,12 @@
   <li>Geocoding API</li>
   <li>Chrome DevTools</li>
   <li>Heroku</li>
-  
 </ul>
+<br>
+<h2>Screenshots:</h2>
+<img src="https://i.imgur.com/bhqzDTf.png">
+<img src="https://i.imgur.com/Gsk42pP.png">
+<img src="https://i.imgur.com/5QufW1H.png">
+<img src="https://i.imgur.com/ZqSML8i.jpg">
+<img src="https://i.imgur.com/qJx8MKR.jpg">
+<img src="https://i.imgur.com/e45glY7.jpg">
