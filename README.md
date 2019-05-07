@@ -28,3 +28,8 @@
 <img src="https://i.imgur.com/ZqSML8i.jpg">
 <img src="https://i.imgur.com/qJx8MKR.jpg">
 <img src="https://i.imgur.com/e45glY7.jpg">
+<h2>Next Steps:</h2>
+<ul>
+  <li>Design Responsive</li>
+  <li>More content to your profile and other people's profile.</li>
+</ul>  
