@@ -3,11 +3,17 @@
 <br>
 <h2>Technologies Used:</h2>
 <ul>
+  <li>Node.JS</li>
   <li><% EJS %> (Embedded JavaScript templating)</li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>CSS3</li>
+  <li>Javascript ECMAScript 2018</li>
+  <li>Vanilla JavaScript</li>
+  <li>MongoDB</li>
+  <li>Mongoose</li>
+  <li>Express</li>
+  <li>Google Maps API</li>
+  <li>Geocoding API</li>
+  <li>Chrome DevTools</li>
+  <li>Heroku</li>
   
 </ul>
