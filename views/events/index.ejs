@@ -1,63 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
-        <link rel="stylesheet" href="/css/events.css">
-    </head>
-    <body>
-
-        <div id="first-background-picture">
-            <%- include('../partials/navBar.ejs')%>
-            <h1 class="events-title">This is Californature</h1>
-            <hr>
-            <div class="down-arrow">
-            <a>
-                <div class="arrow"></div>
-            </a>
-            </div>
-        </div>
-    <%# --------------first page finished-------------------------- %>
-    <div class='event-info'>
-        <h1>Connect with other nature enthusiasts</h1>
-        <p class="event-p">Find an event to attend below or create one for other's to join!</p>
-        <a class="a-button" href="/events/new">
-            <button class="create-event">Create Event</button>
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cinzel"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Didact+Gothic"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display+SC"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/events.css" />
+  </head>
+  <body>
+    <div id="first-background-picture">
+      <%- include('../partials/navBar.ejs')%>
+      <h1 class="events-title">This is Californature</h1>
+      <hr />
+      <div class="down-arrow">
+        <a>
+          <div class="arrow"></div>
         </a>
+      </div>
+    </div>
+    <%# --------------first page finished-------------------------- %>
+    <div class="event-info">
+      <h1>Connect with other nature enthusiasts</h1>
+      <p class="event-p">
+        Find an event to attend below or create one for other's to join!
+      </p>
+      <a class="a-button" href="/events/new">
+        <button class="create-event">Create Event</button>
+      </a>
     </div>
     <section class="background">
-        <h1 class="events-bulletin">Events Bulletin</h1>
-        <section class="events-section">
-            <div class="event-container">
-                <h1 class="event-titles">Local Events</h1>
-                <ul>
-                <% for (let i = 0; i < event.length; i++) {%>
-                <li>
-                    <a class="local-events"href="/events/<%=event[i]._id%>"><%=event[i].title%></a>
-                </li>
-                <%}%>
-                </ul>
-            </div>
-            <div class="event-container">
-                <h1 class="event-titles">My Events</h1>
-                <ul>
-                <% for (let i = 0; i < userEvents.length; i++) {%>
-                    <a class="my-events" href="/events/<%=userEvents[i]._id%>">
-                        <li><%=userEvents[i].title%></li>
-                        <br>
-                        <li><%=userEvents[i].date.toDateString()%></li>
-                    </a>
-                    
-                <%}%>   
-                </ul> 
-            </div>
-            
-        </section>
-        <%- include('../partials/footer.ejs')%>
-    </body>
+      <h1 class="events-bulletin">Events Bulletin</h1>
+      <section class="events-section">
+        <div class="event-container">
+          <h1 class="event-titles">Local Events</h1>
+          <ul>
+            <% for (let i = 0; i < event.length; i++) {%>
+            <li>
+              <a class="local-events" href="/events/<%=event[i]._id%>"
+                ><%=event[i].title%></a
+              >
+            </li>
+            <%}%>
+          </ul>
+        </div>
+        <div class="event-container">
+          <h1 class="event-titles">My Events</h1>
+          <ul>
+            <% for (let i = 0; i < userEvents.length; i++) {%>
+            <a class="my-events" href="/events/<%=userEvents[i]._id%>">
+              <li><%=userEvents[i].title%></li>
+              <br />
+              <li><%=userEvents[i].date.toDateString()%></li>
+            </a>
+
+            <%}%>
+          </ul>
+        </div>
+      </section>
+      <%- include('../partials/footer.ejs')%>
+    </section>
+  </body>
 </html>

@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/css/userShowPage.css">
-    </head>
-        <body>
-            <%- include('../partials/navBar.ejs')%>
-            <div class="background"></div>
-            <div class='div-container'>
-                <div>
-                        <p>Name: <%=user.name%></p>
-                        <p>Email: <%=user.email%></p>
-                </div>
-                    <%if (user._id.toString() === sessionId) {%>
-                        <a class="edit-your-profile" href="/user/<%=user._id%>/edit">
-                        Edit Your Profile
-                        </a>
-                    <% } %>    
-            </div>
-    </body>
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/userShowPage.css" />
+  </head>
+  <body>
+    <%- include('../partials/navBar.ejs')%>
+    <div class="background"></div>
+    <div class="div-container">
+      <div>
+        <p>Name: <%=user.name%></p>
+        <p>Email: <%=user.email%></p>
+      </div>
+      <%if (user._id.toString() === sessionId) {%>
+      <a class="edit-your-profile" href="/user/<%=user._id%>/edit">
+        Edit Your Profile
+      </a>
+      <% } %>
+    </div>
+  </body>
 </html>
